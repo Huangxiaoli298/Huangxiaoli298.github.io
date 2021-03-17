@@ -1,8 +1,9 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="theme-color" content=#58b77a>
   <title>Category-多线程 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="author" content="John Doe">
@@ -10,9 +11,9 @@
   <meta name="description" content="">
   <script id="hexo-configurations">
   var CONFIG = {
-    root: '/',
-    theme: 'lx',
-    version: '1.4.5',
+    root: '/blog/',
+    theme: 'll',
+    version: '0.3.9',
     localsearch:{
       "enable": false,
       "trigger": "auto",
@@ -20,88 +21,129 @@
       "unescape": false,
       "preload": false
       },
-    path: '-'
+    path: 'null'
   };
 </script>
 
-  <link rel="shortcut icon" href="/images/fav-1.png">
-  <link rel="stylesheet" href="/css/main.css">
-  <script src="/js/jquery.min.js"></script>
-  <script src="/js/jquery.jside.menu.js"></script>
+  <link rel="shortcut icon" href="/blog/favicon.ico">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/theme-lx@0.3.9/source/css/main.min.css">
+  <style type="text/css">
+    pre,
+    code {
+      font-family: 'Fira Code', monospace;
+    }
+    html {
+      font-family: sans-serif;
+    }
+    body {
+      font-family: sans-serif;
+    }
+    h1, h2, h3, h4, h5, figure {
+      font-family: sans-serif;
+    }
+    .menu-container{
+      font-family: sans-serif;
+    }
+  </style>
+
+  <script src="//cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/theme-lx@0.3.9/source/js/jquery.jside.menu.js"></script>
 	<script>
 	$(document).ready(function(){
 	$(".menu-container").jSideMenu({
 	    jSidePosition: "position-right",
 	    jSideSticky: true,
-	    jSideSkin: "endless-river",
+	    jSideSkin: "greenish",
 	     });
 	}); 
 	</script>
   
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:300|Noto+Serif+SC&amp;display=swap">
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Fira Code:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
   <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/font-awesome@4/css/font-awesome.min.css">
 <meta name="generator" content="Hexo 5.4.0"></head>
 <body>
 
 <div id="page">
-<div id="lx-aside" style="background-image: url(/images/bg-1.png)">
+
+<div id="lx-aside" style="background-image: url(//cdn.jsdelivr.net/npm/theme-lx@0.3.9/source/images/cover.jpeg)">
   <div class="overlay">
   <div class="featured">
-    <div class="avatar"><a href="/"><img src="/images/ava-1.png"></a></div>
+    <div class="avatar"><a href="/blog/"><img src="/blog/images/avatar.jpeg"></a></div>
     <span>John Doe</span>
-    <h2>Hexo</h2>
-    <span>——</span>
+    <h1>Hexo</h1>
+    
     
   </div>
   </div>
 </div>
+
 <div id="lx-main-content">
   <div class="lx-post">
-
+  <h2 class="pagehead">Category 多线程</h2>
+    <div class="lx-entry padding"><div>
+    <span class="lx-post-detail">2020-03-12</span>
+    <h2 class="title"><a href="/blog/2020/03/12/%E7%BA%BF%E7%A8%8B%E7%9A%84%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/">线程的生命周期</a></h2>
+    <p></p></div></div><div class="lx-entry padding"><div>
+    <span class="lx-post-detail">2020-03-10</span>
+    <h2 class="title"><a href="/blog/2020/03/10/%E7%BA%BF%E7%A8%8B%E7%9A%84%E5%88%9B%E5%BB%BA%E4%B8%8E%E5%90%AF%E5%8A%A8/">线程的创建与启动</a></h2>
+    <p></p></div></div><div class="lx-entry padding"><div>
+    <span class="lx-post-detail">2020-03-10</span>
+    <h2 class="title"><a href="/blog/2020/03/10/%E5%A4%9A%E7%BA%BF%E7%A8%8B%E6%A6%82%E8%BF%B0/">多线程概述</a></h2>
+    <p></p></div></div>
 <div id="pagination">
-  <a class="extend prev" rel="prev" href="/categories/%E5%A4%9A%E7%BA%BF%E7%A8%8B/">&lt;i class&#x3D;&quot;fa fa-chevron-left&quot; aria-label&#x3D;&quot;accessibility.prev_page&quot;&gt;&lt;&#x2F;i&gt;</a><a class="page-number" href="/categories/%E5%A4%9A%E7%BA%BF%E7%A8%8B/">1</a><span class="page-number current">2</span>
+  <a class="extend prev" rel="prev" href="/blog/categories/%E5%A4%9A%E7%BA%BF%E7%A8%8B/"></a><a class="page-number" href="/blog/categories/%E5%A4%9A%E7%BA%BF%E7%A8%8B/">1</a><span class="page-number current">2</span>
 </div>
+
 <footer>
   <div>
-  Copyright &copy; 2019.<a href="/">Hexo</a><br>Powered by <a href="https://hexo.io" target="_blank">Hexo</a> | Theme <a href="https://lx.blleng.cn" target="_blank">Lx</a><br>
+  Copyright &copy; 2021.<a href="/blog/">Hexo</a><br>Powered by <a href="https://hexo.io" target="_blank">Hexo</a> | Theme <a href="https://lx.js.org" target="_blank">Lx</a><br>
   </div>
 </footer>
+
   </div>
 </div>
 </div>
 
-<button class="menu-trigger"></button>
-<div class="menu">
+<button class="hamburger hamburger--arrow-r" type="button">
+    <div class="hamburger-box">
+      <div class="hamburger-inner"></div>
+    </div>
+</button> 
+<div class="menu visibility">
   <div class="menu-head">
     <span class="layer">
       <div class="col">
         <div class="row for-pic">
           <div class="profile-pic">
-            <a href="/"><img src="/images/ava-1.png" alt="John Doe"/></a>
+            <a href="/blog/"><img src="/blog/images/avatar.jpeg" alt="John Doe"/></a>
           </div>
         </div>
         <div class="row for-name">
           <p>John Doe</p>
-          <span class="tagline">不爱学习的小胖子</span>
+          <span class="tagline">Hello, World!</span>
         </div>
       </div>
     </span>
   </div>
   <nav class="menu-container">
   <ul class="menu-items">
-    <li><a href="/"><i class="fa fa-home fa-fw"></i>首页</a></li>
-    <li><a href="/archives/"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+    <li><a href="/"><i class="fa fa-home fa-fw"></i>Home</a></li>
+    <li><a href="/blog/archives/"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
     <li class="has-sub"><span class="dropdown-heading">
-      <i class="fa fa-bookmark fa-fw"></i>页面</span>
+      <i class="fa fa-th-list fa-fw"></i>Categories</span>
+        <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/blog/categories/JDBC/">JDBC</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/JavaWeb/">JavaWeb</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/MySQL/">MySQL</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/Mybatis/">Mybatis</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/Mysql/">Mysql</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/Servlet/">Servlet</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/Spring/">Spring</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/io%E6%B5%81/">io流</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/java%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80/">java语言基础</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/maven/">maven</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/servlet/">servlet</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/%E5%88%86%E7%BB%84%E5%87%BD%E6%95%B0/">分组函数</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/%E5%8F%8D%E5%B0%84%E6%9C%BA%E5%88%B6/">反射机制</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/%E5%A4%9A%E7%BA%BF%E7%A8%8B/">多线程</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/%E5%BC%82%E5%B8%B8%E6%9C%BA%E5%88%B6/">异常机制</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/%E6%95%B0%E7%BB%84/">数组</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/">面向对象</a></li></ul>
+    </li>
+    <li class="has-sub"><span class="dropdown-heading">
+      <i class="fa fa-bookmark fa-fw"></i>Pages</span>
         <ul>
-          <li><a href="/guestbook">留言</a></li>
-        <li><a href="/about">关于</a></li>
+          <li><a href="/blog/guestbook/">Guestbook</a></li>
+        <li><a href="/blog/about/">About</a></li>
         </ul>
     </li>
     <li class="has-sub"><span class="dropdown-heading">
-      <i class="fa fa-link fa-fw"></i>友链</span>
+      <i class="fa fa-link fa-fw"></i>Friends</span>
         <ul>
-          <li> <a href="https://lx.blleng.cn" target="_blank">Theme-Lx</a></li>
+          <li> <a href="https://lx.js.org" target="_blank">Theme-Lx</a></li>
         </ul>
     </li>
   </ul>
@@ -111,10 +153,32 @@
 <div class="gototop js-top">
   <a href="#" class="js-gotop"><i class="fa fa-arrow-up"></i></a>
 </div>
-<script src="/js/jquery.easing.min.js"></script>
-<script src="/js/jquery.waypoints.min.js"></script>
-<script src="/js/jquery.stellar.min.js"></script>
-<script src="/js/main.js"></script>
+<script src="//cdn.jsdelivr.net/npm/theme-lx@0.3.9/source/js/jquery.easing.min.js"></script>
+<script>
+(function () {
+	"use strict";
+	var goToTop = function() {
+		$(".js-gotop").on("click", function(event){
+			event.preventDefault();
+			$("html, body").animate({
+				scrollTop: $("html").offset().top
+			}, 500, "easeInOutExpo");
+			return false;
+		});
+		$(window).scroll(function(){
+			var $win = $(window);
+			if ($win.scrollTop() > 200) {
+				$(".js-top").addClass("active");
+			} else {
+				$(".js-top").removeClass("active");
+			}
+		});
+	};
+	$(function(){
+		goToTop();
+	});
+}());
+</script>
 
 
 </body>

@@ -1,8 +1,9 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="theme-color" content=#58b77a>
   <title>线程同步-对象锁 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="author" content="John Doe">
@@ -10,9 +11,9 @@
   <meta name="description" content="">
   <script id="hexo-configurations">
   var CONFIG = {
-    root: '/',
-    theme: 'lx',
-    version: '1.4.5',
+    root: '/blog/',
+    theme: 'll',
+    version: '0.3.9',
     localsearch:{
       "enable": false,
       "trigger": "auto",
@@ -20,40 +21,61 @@
       "unescape": false,
       "preload": false
       },
-    path: '-'
+    path: 'null'
   };
 </script>
 
-  <link rel="shortcut icon" href="/images/fav-1.png">
-  <link rel="stylesheet" href="/css/main.css">
-  <script src="/js/jquery.min.js"></script>
-  <script src="/js/jquery.jside.menu.js"></script>
+  <link rel="shortcut icon" href="/blog/favicon.ico">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/theme-lx@0.3.9/source/css/main.min.css">
+  <style type="text/css">
+    pre,
+    code {
+      font-family: 'Fira Code', monospace;
+    }
+    html {
+      font-family: sans-serif;
+    }
+    body {
+      font-family: sans-serif;
+    }
+    h1, h2, h3, h4, h5, figure {
+      font-family: sans-serif;
+    }
+    .menu-container{
+      font-family: sans-serif;
+    }
+  </style>
+
+  <script src="//cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/theme-lx@0.3.9/source/js/jquery.jside.menu.js"></script>
 	<script>
 	$(document).ready(function(){
 	$(".menu-container").jSideMenu({
 	    jSidePosition: "position-right",
 	    jSideSticky: true,
-	    jSideSkin: "endless-river",
+	    jSideSkin: "greenish",
 	     });
 	}); 
 	</script>
   
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:300|Noto+Serif+SC&amp;display=swap">
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Fira Code:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
   <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/font-awesome@4/css/font-awesome.min.css">
 <meta name="generator" content="Hexo 5.4.0"></head>
 <body>
 <div class="single">
+
 <div id="page">
-<div id="lx-aside" style="background-image: url(/images/bg-2.png)" data-stellar-background-ratio="0.5">
+<div id="lx-aside" style="background-image: url(//cdn.jsdelivr.net/npm/theme-lx@0.3.9/source/images/post_cover.jpeg)" data-stellar-background-ratio="0.5">
   <div class="overlay">
   <div class="page-title">
-    <div class="avatar"><a href="/"><img src="/images/ava-1.png"></a></div>
+    <div class="avatar"><a href="/blog/"><img src="/blog/images/avatar.jpeg"></a></div>
     <span>2020-03-16</span>
     <h2>线程同步-对象锁</h2>
     
     </div>
 </div>
 </div>
+
 <div id="lx-main-content">
   <div class="lx-post">
     <div class="lx-entry padding">
@@ -71,33 +93,33 @@
 <p>以下程序演示取款例子。以下程序不使用线程同步</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> thread;</span><br><span class="line"> </span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test11</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		Account act = <span class="keyword">new</span> Account(<span class="string">&quot;actno-001&quot;</span>,<span class="number">50000.0</span>);</span><br><span class="line">		G g = <span class="keyword">new</span> G(act);        </span><br><span class="line">		Thread t1 = <span class="keyword">new</span> Thread(g);</span><br><span class="line">		Thread t2 = <span class="keyword">new</span> Thread(g);</span><br><span class="line">		Thread t3 = <span class="keyword">new</span> Thread(g);</span><br><span class="line">		Thread t4 = <span class="keyword">new</span> Thread(g);</span><br><span class="line">		Thread t5 = <span class="keyword">new</span> Thread(g);</span><br><span class="line">		t1.start();</span><br><span class="line">		t2.start();</span><br><span class="line">		t3.start();</span><br><span class="line">		t4.start();</span><br><span class="line">		t5.start();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">G</span> <span class="keyword">implements</span> <span class="title">Runnable</span></span>&#123;</span><br><span class="line">	Account act;</span><br><span class="line">	G(Account act)&#123;</span><br><span class="line">		<span class="keyword">this</span>.act = act;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span></span>&#123;</span><br><span class="line">		act.withdraw(<span class="number">1000</span>);</span><br><span class="line">		System.out.println(<span class="string">&quot;取款成功，余额&quot;</span> + act.getBalance() + <span class="string">&quot;元&quot;</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Account</span></span>&#123;</span><br><span class="line">	<span class="keyword">private</span> String actno;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">double</span> balance;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">Account</span><span class="params">()</span> </span>&#123;&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">Account</span><span class="params">(String actno,<span class="keyword">double</span> balance)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.actno = actno;</span><br><span class="line">		<span class="keyword">this</span>.balance = balance; </span><br><span class="line">		<span class="keyword">this</span>.actno = actno;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setBalance</span><span class="params">(<span class="keyword">double</span> balance)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.balance = balance;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">getActno</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> actno;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">double</span> <span class="title">getBalance</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> balance;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">withdraw</span><span class="params">(<span class="keyword">double</span> money)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">double</span> after = balance - money;</span><br><span class="line">		<span class="keyword">try</span> &#123;</span><br><span class="line">			Thread.sleep(<span class="number">1000</span>);</span><br><span class="line">		&#125;<span class="keyword">catch</span>(InterruptedException e) &#123;</span><br><span class="line">			e.printStackTrace();</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">this</span>.setBalance(after);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p><img src="/2020/03/16/%E7%BA%BF%E7%A8%8B%E5%90%8C%E6%AD%A5-%E5%AF%B9%E8%B1%A1%E9%94%81/image-20200317001846818.png" alt="image-20200317001846818"></p>
+<p><img src="/image-20200317001846818.png" alt="image-20200317001846818"></p>
 <p>以下程序使用线程同步</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> thread;</span><br><span class="line"> </span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test11</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		Account act = <span class="keyword">new</span> Account(<span class="string">&quot;actno-001&quot;</span>,<span class="number">50000.0</span>);</span><br><span class="line">		G g = <span class="keyword">new</span> G(act);        </span><br><span class="line">		Thread t1 = <span class="keyword">new</span> Thread(g);</span><br><span class="line">		Thread t2 = <span class="keyword">new</span> Thread(g);</span><br><span class="line">		Thread t3 = <span class="keyword">new</span> Thread(g);</span><br><span class="line">		Thread t4 = <span class="keyword">new</span> Thread(g);</span><br><span class="line">		Thread t5 = <span class="keyword">new</span> Thread(g);</span><br><span class="line">		t1.start();</span><br><span class="line">		t2.start();</span><br><span class="line">		t3.start();</span><br><span class="line">		t4.start();</span><br><span class="line">		t5.start();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">G</span> <span class="keyword">implements</span> <span class="title">Runnable</span></span>&#123;</span><br><span class="line">	Account act;</span><br><span class="line">	G(Account act)&#123;</span><br><span class="line">		<span class="keyword">this</span>.act = act;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span></span>&#123;</span><br><span class="line">		act.withdraw(<span class="number">1000</span>);</span><br><span class="line">		System.out.println(<span class="string">&quot;取款成功，余额&quot;</span> + act.getBalance() + <span class="string">&quot;元&quot;</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Account</span></span>&#123;</span><br><span class="line">	<span class="keyword">private</span> String actno;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">double</span> balance;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">Account</span><span class="params">()</span> </span>&#123;&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">Account</span><span class="params">(String actno,<span class="keyword">double</span> balance)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.actno = actno;</span><br><span class="line">		<span class="keyword">this</span>.balance = balance; </span><br><span class="line">		<span class="keyword">this</span>.actno = actno;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setBalance</span><span class="params">(<span class="keyword">double</span> balance)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.balance = balance;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">getActno</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> actno;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">double</span> <span class="title">getBalance</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> balance;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">withdraw</span><span class="params">(<span class="keyword">double</span> money)</span> </span>&#123;</span><br><span class="line">		<span class="comment">//把需要同步的代码，放到同步语句块中</span></span><br><span class="line">		<span class="keyword">synchronized</span>(<span class="keyword">this</span>) &#123;</span><br><span class="line">			<span class="keyword">double</span> after = balance - money;</span><br><span class="line">			<span class="keyword">try</span> &#123;</span><br><span class="line">				Thread.sleep(<span class="number">1000</span>);</span><br><span class="line">			&#125;<span class="keyword">catch</span>(InterruptedException e) &#123;</span><br><span class="line">				e.printStackTrace();</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">this</span>.setBalance(after);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p><img src="/2020/03/16/%E7%BA%BF%E7%A8%8B%E5%90%8C%E6%AD%A5-%E5%AF%B9%E8%B1%A1%E9%94%81/image-20200317002406249.png" alt="image-20200317002406249"></p>
+<p><img src="/image-20200317002406249.png" alt="image-20200317002406249"></p>
 <p>synchronized原理：t1和t2线程</p>
 <p>t1运行到synchronized处，就会去找this的对象锁，如果找到this的对象锁，则进入同步语句块中执行程序，同步语句块中的代码执行结束之后，t1线程归还this的对象锁。</p>
 <p>在t1线程执行同步语句块的过程中，如果t2线程也过来执行以下代码，也遇到synchronized关键字，所以也去找this的对象锁，但是该对象锁被t1所持有，只能等待this对象锁的归还。</p>
-<p><img src="/2020/03/16/%E7%BA%BF%E7%A8%8B%E5%90%8C%E6%AD%A5-%E5%AF%B9%E8%B1%A1%E9%94%81/image-20200317005507182.png" alt="image-20200317005507182"></p>
+<p><img src="/image-20200317005507182.png" alt="image-20200317005507182"></p>
 <p>如图在方法定义时加上synchronized关键字也会获取当前this的对象锁。</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> thread;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test12</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> InterruptedException</span>&#123;</span><br><span class="line">		Myclass mc = <span class="keyword">new</span> Myclass();</span><br><span class="line">		bro b = <span class="keyword">new</span> bro(mc);</span><br><span class="line">		Thread t1 = <span class="keyword">new</span> Thread(b);</span><br><span class="line">		Thread t2 = <span class="keyword">new</span> Thread(b);</span><br><span class="line">		t1.setName(<span class="string">&quot;t1&quot;</span>);</span><br><span class="line">		t2.setName(<span class="string">&quot;t2&quot;</span>);</span><br><span class="line">		t1.start();</span><br><span class="line">		Thread.sleep(<span class="number">1000</span>);</span><br><span class="line">		t2.start();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">bro</span> <span class="keyword">implements</span> <span class="title">Runnable</span></span>&#123;</span><br><span class="line">	Myclass mc;</span><br><span class="line">	bro(Myclass mc) &#123;</span><br><span class="line">		<span class="keyword">this</span>.mc = mc;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span></span>&#123;</span><br><span class="line">		<span class="keyword">if</span>(Thread.currentThread().getName().equals(<span class="string">&quot;t1&quot;</span>)) &#123;</span><br><span class="line">			mc.m1();</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span>(Thread.currentThread().getName().equals(<span class="string">&quot;t2&quot;</span>)) &#123;</span><br><span class="line">			mc.m2();</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Myclass</span></span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">synchronized</span> <span class="keyword">void</span> <span class="title">m1</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">try</span> &#123;</span><br><span class="line">		Thread.sleep(<span class="number">10000</span>);</span><br><span class="line">	&#125;<span class="keyword">catch</span>(InterruptedException e) &#123;</span><br><span class="line">		e.printStackTrace();</span><br><span class="line">	&#125;</span><br><span class="line">	System.out.println(<span class="string">&quot;m1---&quot;</span>);	</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">m2</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	System.out.println(<span class="string">&quot;m2---&quot;</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>若不对m2方法加线程锁，则在一秒之后输出m2在十秒后输出m1；</p>
-<p><img src="/2020/03/16/%E7%BA%BF%E7%A8%8B%E5%90%8C%E6%AD%A5-%E5%AF%B9%E8%B1%A1%E9%94%81/image-20200317142121169.png" alt="image-20200317142121169"></p>
+<p><img src="/image-20200317142121169.png" alt="image-20200317142121169"></p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> thread;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test12</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> InterruptedException</span>&#123;</span><br><span class="line">		Myclass mc = <span class="keyword">new</span> Myclass();</span><br><span class="line">		bro b = <span class="keyword">new</span> bro(mc);</span><br><span class="line">		Thread t1 = <span class="keyword">new</span> Thread(b);</span><br><span class="line">		Thread t2 = <span class="keyword">new</span> Thread(b);</span><br><span class="line">		t1.setName(<span class="string">&quot;t1&quot;</span>);</span><br><span class="line">		t2.setName(<span class="string">&quot;t2&quot;</span>);</span><br><span class="line">		t1.start();</span><br><span class="line">		Thread.sleep(<span class="number">1000</span>);</span><br><span class="line">		t2.start();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">bro</span> <span class="keyword">implements</span> <span class="title">Runnable</span></span>&#123;</span><br><span class="line">	Myclass mc;</span><br><span class="line">	bro(Myclass mc) &#123;</span><br><span class="line">		<span class="keyword">this</span>.mc = mc;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span></span>&#123;</span><br><span class="line">		<span class="keyword">if</span>(Thread.currentThread().getName().equals(<span class="string">&quot;t1&quot;</span>)) &#123;</span><br><span class="line">			mc.m1();</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span>(Thread.currentThread().getName().equals(<span class="string">&quot;t2&quot;</span>)) &#123;</span><br><span class="line">			mc.m2();</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Myclass</span></span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">synchronized</span> <span class="keyword">void</span> <span class="title">m1</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">try</span> &#123;</span><br><span class="line">		Thread.sleep(<span class="number">10000</span>);</span><br><span class="line">	&#125;<span class="keyword">catch</span>(InterruptedException e) &#123;</span><br><span class="line">		e.printStackTrace();</span><br><span class="line">	&#125;</span><br><span class="line">	System.out.println(<span class="string">&quot;m1---&quot;</span>);	</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">synchronized</span> <span class="keyword">void</span> <span class="title">m2</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	System.out.println(<span class="string">&quot;m2---&quot;</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>对m2方法也加上线程锁之后，t1  t2线程的对象是同一个所以t1先拿走对象锁，m2同步语句块必须等待m1执行完同步语句块之后再执行。</p>
-<p><img src="/2020/03/16/%E7%BA%BF%E7%A8%8B%E5%90%8C%E6%AD%A5-%E5%AF%B9%E8%B1%A1%E9%94%81/image-20200317142335429.png" alt="image-20200317142335429"></p>
+<p><img src="/image-20200317142335429.png" alt="image-20200317142335429"></p>
 
       </div>
     </div>
   </div>
 </div>
 <div class="lx-navigation">
-	<div class="lx-cover prev lx-cover-sm" style="background-image: url(/images/footer_1.jpg)">
+	<div class="lx-cover prev lx-cover-sm" style="background-image: url(//cdn.jsdelivr.net/npm/theme-lx@0.3.9/source/images/footer-l.jpeg)">
 		<div class="overlay"></div>
-		<a class="copy" href="/2020/03/17/%E7%BA%BF%E7%A8%8B%E5%90%8C%E6%AD%A5-%E7%B1%BB%E9%94%81/">
+		<a class="copy" href="/blog/2020/03/17/%E7%BA%BF%E7%A8%8B%E5%90%8C%E6%AD%A5-%E7%B1%BB%E9%94%81/">
 			<div class="display-t">
 				<div class="display-tc">
 					<div>
@@ -108,9 +130,9 @@
 			</div>
 		</a>
 	</div>
-        <div class="lx-cover next lx-cover-sm" style="background-image: url(/images/footer_2.jpg)">
+        <div class="lx-cover next lx-cover-sm" style="background-image: url(//cdn.jsdelivr.net/npm/theme-lx@0.3.9/source/images/footer-r.jpeg)">
 		<div class="overlay"></div>
-		<a class="copy" href="/2020/03/16/%E5%A4%9A%E7%BA%BF%E7%A8%8B-join/">
+		<a class="copy" href="/blog/2020/03/16/%E5%A4%9A%E7%BA%BF%E7%A8%8B-join/">
 			<div class="display-t">
 				<div class="display-tc">
 					<div>
@@ -122,47 +144,57 @@
 		</a>
 	</div>
 </div>
+
 </div>
 
 <footer>
   <div>
-  Copyright &copy; 2019.<a href="/">Hexo</a><br>Powered by <a href="https://hexo.io" target="_blank">Hexo</a> | Theme <a href="https://lx.blleng.cn" target="_blank">Lx</a><br>
+  Copyright &copy; 2021.<a href="/blog/">Hexo</a><br>Powered by <a href="https://hexo.io" target="_blank">Hexo</a> | Theme <a href="https://lx.js.org" target="_blank">Lx</a><br>
   </div>
 </footer>
+
 </div>
 
-<button class="menu-trigger"></button>
-<div class="menu">
+<button class="hamburger hamburger--arrow-r" type="button">
+    <div class="hamburger-box">
+      <div class="hamburger-inner"></div>
+    </div>
+</button> 
+<div class="menu visibility">
   <div class="menu-head">
     <span class="layer">
       <div class="col">
         <div class="row for-pic">
           <div class="profile-pic">
-            <a href="/"><img src="/images/ava-1.png" alt="John Doe"/></a>
+            <a href="/blog/"><img src="/blog/images/avatar.jpeg" alt="John Doe"/></a>
           </div>
         </div>
         <div class="row for-name">
           <p>John Doe</p>
-          <span class="tagline">不爱学习的小胖子</span>
+          <span class="tagline">Hello, World!</span>
         </div>
       </div>
     </span>
   </div>
   <nav class="menu-container">
   <ul class="menu-items">
-    <li><a href="/"><i class="fa fa-home fa-fw"></i>首页</a></li>
-    <li><a href="/archives/"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+    <li><a href="/"><i class="fa fa-home fa-fw"></i>Home</a></li>
+    <li><a href="/blog/archives/"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
     <li class="has-sub"><span class="dropdown-heading">
-      <i class="fa fa-bookmark fa-fw"></i>页面</span>
+      <i class="fa fa-th-list fa-fw"></i>Categories</span>
+        <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/blog/categories/JDBC/">JDBC</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/JavaWeb/">JavaWeb</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/MySQL/">MySQL</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/Mybatis/">Mybatis</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/Mysql/">Mysql</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/Servlet/">Servlet</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/Spring/">Spring</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/io%E6%B5%81/">io流</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/java%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80/">java语言基础</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/maven/">maven</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/servlet/">servlet</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/%E5%88%86%E7%BB%84%E5%87%BD%E6%95%B0/">分组函数</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/%E5%8F%8D%E5%B0%84%E6%9C%BA%E5%88%B6/">反射机制</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/%E5%A4%9A%E7%BA%BF%E7%A8%8B/">多线程</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/%E5%BC%82%E5%B8%B8%E6%9C%BA%E5%88%B6/">异常机制</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/%E6%95%B0%E7%BB%84/">数组</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/">面向对象</a></li></ul>
+    </li>
+    <li class="has-sub"><span class="dropdown-heading">
+      <i class="fa fa-bookmark fa-fw"></i>Pages</span>
         <ul>
-          <li><a href="/guestbook">留言</a></li>
-        <li><a href="/about">关于</a></li>
+          <li><a href="/blog/guestbook/">Guestbook</a></li>
+        <li><a href="/blog/about/">About</a></li>
         </ul>
     </li>
     <li class="has-sub"><span class="dropdown-heading">
-      <i class="fa fa-link fa-fw"></i>友链</span>
+      <i class="fa fa-link fa-fw"></i>Friends</span>
         <ul>
-          <li> <a href="https://lx.blleng.cn" target="_blank">Theme-Lx</a></li>
+          <li> <a href="https://lx.js.org" target="_blank">Theme-Lx</a></li>
         </ul>
     </li>
   </ul>
@@ -172,10 +204,32 @@
 <div class="gototop js-top">
   <a href="#" class="js-gotop"><i class="fa fa-arrow-up"></i></a>
 </div>
-<script src="/js/jquery.easing.min.js"></script>
-<script src="/js/jquery.waypoints.min.js"></script>
-<script src="/js/jquery.stellar.min.js"></script>
-<script src="/js/main.js"></script>
+<script src="//cdn.jsdelivr.net/npm/theme-lx@0.3.9/source/js/jquery.easing.min.js"></script>
+<script>
+(function () {
+	"use strict";
+	var goToTop = function() {
+		$(".js-gotop").on("click", function(event){
+			event.preventDefault();
+			$("html, body").animate({
+				scrollTop: $("html").offset().top
+			}, 500, "easeInOutExpo");
+			return false;
+		});
+		$(window).scroll(function(){
+			var $win = $(window);
+			if ($win.scrollTop() > 200) {
+				$(".js-top").addClass("active");
+			} else {
+				$(".js-top").removeClass("active");
+			}
+		});
+	};
+	$(function(){
+		goToTop();
+	});
+}());
+</script>
 
 
 </body>
