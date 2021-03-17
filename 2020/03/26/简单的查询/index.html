@@ -86,17 +86,17 @@
 <p>提示：</p>
 <p>1、任何一条sql语句以“：”结尾。</p>
 <p>2、ssql语句不区分大小写。</p>
-<p><img src="/image-20200326162823765.png" alt="image-20200326162823765"></p>
-<p><img src="/image-20200326162952270.png" alt="image-20200326162952270"></p>
+<p><img src="/blog/huangxiaol/blog.git/2020/03/26/%E7%AE%80%E5%8D%95%E7%9A%84%E6%9F%A5%E8%AF%A2/image-20200326162823765.png" alt="image-20200326162823765"></p>
+<p><img src="/blog/huangxiaol/blog.git/2020/03/26/%E7%AE%80%E5%8D%95%E7%9A%84%E6%9F%A5%E8%AF%A2/image-20200326162952270.png" alt="image-20200326162952270"></p>
 <p><strong>查询员工的年薪？</strong></p>
 <p><strong>select ename,sal*12 from emp;</strong></p>
-<p><img src="/image-20200326163229773.png" alt="image-20200326163229773"></p>
+<p><img src="/blog/huangxiaol/blog.git/2020/03/26/%E7%AE%80%E5%8D%95%E7%9A%84%E6%9F%A5%E8%AF%A2/image-20200326163229773.png" alt="image-20200326163229773"></p>
 <p>给查询结果的列重命名：<strong>select ename,sal*12 as yearsal from emp;</strong></p>
-<p><img src="/image-20200326163431970.png" alt="image-20200326163431970"></p>
+<p><img src="/blog/huangxiaol/blog.git/2020/03/26/%E7%AE%80%E5%8D%95%E7%9A%84%E6%9F%A5%E8%AF%A2/image-20200326163431970.png" alt="image-20200326163431970"></p>
 <p>别名中有中文：<strong>select ename,sal*12 as ‘年薪’ from emp;</strong></p>
-<p><img src="/image-20200326163645226.png" alt="image-20200326163645226"></p>
+<p><img src="/blog/huangxiaol/blog.git/2020/03/26/%E7%AE%80%E5%8D%95%E7%9A%84%E6%9F%A5%E8%AF%A2/image-20200326163645226.png" alt="image-20200326163645226"></p>
 <p><strong>注意：标准sql语句中要求字符串用单引号括起来，虽然mysql支持双引号，尽量别用。</strong></p>
-<p><img src="/image-20200326210441345.png" alt="image-20200326210441345"></p>
+<p><img src="/blog/huangxiaol/blog.git/2020/03/26/%E7%AE%80%E5%8D%95%E7%9A%84%E6%9F%A5%E8%AF%A2/image-20200326210441345.png" alt="image-20200326210441345"></p>
 <p><strong>as关键字可以省略。</strong></p>
 <p><strong>查询全部字段：select * from emp；</strong>一般不建议使用，效率较低。</p>
 

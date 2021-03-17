@@ -84,20 +84,20 @@
 <p>排序（升序，降序）</p>
 <p>按照工资升序，找出员工名和薪资。</p>
 <p><strong>select ename,sal from emp order by sal;</strong></p>
-<p><img src="/image-20200328222900160.png" alt="image-20200328222900160"></p>
+<p><img src="/blog/huangxiaol/blog.git/2020/03/28/%E6%95%B0%E6%8D%AE%E6%8E%92%E5%BA%8F/image-20200328222900160.png" alt="image-20200328222900160"></p>
 <p><strong>select ename,sal from emp order by sal asc/desc;  asc为升序desc为降序，不指定的话默认升序。</strong></p>
-<p><img src="/image-20200328223006455.png" alt="image-20200328223006455"></p>
+<p><img src="/blog/huangxiaol/blog.git/2020/03/28/%E6%95%B0%E6%8D%AE%E6%8E%92%E5%BA%8F/image-20200328223006455.png" alt="image-20200328223006455"></p>
 <p>按照工资的降序排列，当工资相同的时候按名字的升序排列</p>
 <p><strong>select ename,sal from emp order by sal desc,ename asc;</strong></p>
-<p><img src="/image-20200328224604043.png" alt="image-20200328224604043"></p>
+<p><img src="/blog/huangxiaol/blog.git/2020/03/28/%E6%95%B0%E6%8D%AE%E6%8E%92%E5%BA%8F/image-20200328224604043.png" alt="image-20200328224604043"></p>
 <p><strong>注意：越靠前的字段越能起到主导作用，只有当前面的字段无法完成排序的时候，才会启用后面的字段。</strong></p>
 <p><strong>按字段名进行排序：select * from emp order by ename;</strong></p>
-<p><img src="/image-20200329012414103.png" alt="image-20200329012414103"></p>
+<p><img src="/blog/huangxiaol/blog.git/2020/03/28/%E6%95%B0%E6%8D%AE%E6%8E%92%E5%BA%8F/image-20200329012414103.png" alt="image-20200329012414103"></p>
 <p><strong>select * from emp order by sal;</strong></p>
-<p><img src="/image-20200329012449208.png" alt="image-20200329012449208"></p>
+<p><img src="/blog/huangxiaol/blog.git/2020/03/28/%E6%95%B0%E6%8D%AE%E6%8E%92%E5%BA%8F/image-20200329012449208.png" alt="image-20200329012449208"></p>
 <p><strong>找出工作岗位是salesman的员工，并且要求按照薪资降序排列：</strong></p>
 <p><strong>select ename,sal,job from emp where job=’salesman’ order by sal desc;</strong></p>
-<p><img src="/image-20200329012736114.png" alt="image-20200329012736114"></p>
+<p><img src="/blog/huangxiaol/blog.git/2020/03/28/%E6%95%B0%E6%8D%AE%E6%8E%92%E5%BA%8F/image-20200329012736114.png" alt="image-20200329012736114"></p>
 
       </div>
     </div>

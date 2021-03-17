@@ -88,25 +88,25 @@
 <p>min 最小值</p>
 <p>记住：所有的分组函数都是对“某一组”数据进行操作的。</p>
 <p><strong>找出工资总和：sum(sal) from emp;</strong></p>
-<p><img src="/image-20200329025711894.png" alt="image-20200329025711894"></p>
+<p><img src="/blog/huangxiaol/blog.git/2020/03/29/%E5%88%86%E7%BB%84%E5%87%BD%E6%95%B0/image-20200329025711894.png" alt="image-20200329025711894"></p>
 <p><strong>找出最低工资：select min(sal) from emp;</strong></p>
-<p><img src="/image-20200329025754412.png" alt="image-20200329025754412"></p>
+<p><img src="/blog/huangxiaol/blog.git/2020/03/29/%E5%88%86%E7%BB%84%E5%87%BD%E6%95%B0/image-20200329025754412.png" alt="image-20200329025754412"></p>
 <p><strong>找出最高工资：select max(sal) from emp;</strong></p>
-<p><img src="/image-20200329025822590.png" alt="image-20200329025822590"></p>
+<p><img src="/blog/huangxiaol/blog.git/2020/03/29/%E5%88%86%E7%BB%84%E5%87%BD%E6%95%B0/image-20200329025822590.png" alt="image-20200329025822590"></p>
 <p><strong>找出平均工资：select avg(sal) from emp;</strong></p>
-<p><img src="/image-20200329025849512.png" alt="image-20200329025849512"></p>
+<p><img src="/blog/huangxiaol/blog.git/2020/03/29/%E5%88%86%E7%BB%84%E5%87%BD%E6%95%B0/image-20200329025849512.png" alt="image-20200329025849512"></p>
 <p><strong>找出总人数：select count(*) from emp;或者select count(ename) from emp;</strong></p>
-<p><img src="/image-20200329030031140.png" alt="image-20200329030031140"></p>
-<p><img src="/image-20200329030039616.png" alt="image-20200329030039616"></p>
+<p><img src="/blog/huangxiaol/blog.git/2020/03/29/%E5%88%86%E7%BB%84%E5%87%BD%E6%95%B0/image-20200329030031140.png" alt="image-20200329030031140"></p>
+<p><img src="/blog/huangxiaol/blog.git/2020/03/29/%E5%88%86%E7%BB%84%E5%87%BD%E6%95%B0/image-20200329030039616.png" alt="image-20200329030039616"></p>
 <p>分组函数一共5个。</p>
 <p>分组函数还有另外一个名字：多行处理函数。</p>
 <p>多行处理函数的特点：输入多行，最终输出的结果是1行。</p>
 <p>分组函数自动忽略null。</p>
 <p><strong>例子：select count(comm) from emp;</strong></p>
 <p>表中数据如下</p>
-<p><img src="/image-20200329030440216.png" alt="image-20200329030440216"></p>
+<p><img src="/blog/huangxiaol/blog.git/2020/03/29/%E5%88%86%E7%BB%84%E5%87%BD%E6%95%B0/image-20200329030440216.png" alt="image-20200329030440216"></p>
 <p>得出结果如下</p>
-<p><img src="/image-20200329030453834.png" alt="image-20200329030453834"></p>
+<p><img src="/blog/huangxiaol/blog.git/2020/03/29/%E5%88%86%E7%BB%84%E5%87%BD%E6%95%B0/image-20200329030453834.png" alt="image-20200329030453834"></p>
 <p>自动忽略了comm中的null。</p>
 <p><strong>案例：找出工资高于平均工资的员工？</strong></p>
 <p><strong>select ename,sal from emp where sal &gt; avg(sal);//ERROR 1111 (HY000): Invalid use of group function</strong></p>
@@ -115,21 +115,21 @@
 <p><strong>怎么解释？</strong></p>
 <p><strong>因为group by实在where执行之后才会执行的。</strong></p>
 <p><strong>正确语句：select ename,job,sal from emp where sal &gt; (select avg(sal) from emp) ;</strong></p>
-<p><img src="/image-20200329232019444.png" alt="image-20200329232019444"></p>
+<p><img src="/blog/huangxiaol/blog.git/2020/03/29/%E5%88%86%E7%BB%84%E5%87%BD%E6%95%B0/image-20200329232019444.png" alt="image-20200329232019444"></p>
 <p><strong>单行处理函数</strong></p>
 <p>什么是单行处理函数？</p>
 <p>输入一行，输出一行。</p>
 <p>计算每个员工的年薪？</p>
 <p>*<em>select ename,(sal+comm)<em>12 as yearsal from emp;</em></em></p>
-<p><img src="/image-20200329030847824.png" alt="image-20200329030847824"></p>
+<p><img src="/blog/huangxiaol/blog.git/2020/03/29/%E5%88%86%E7%BB%84%E5%87%BD%E6%95%B0/image-20200329030847824.png" alt="image-20200329030847824"></p>
 <p>重点：所有数据库都是这样规定的，凡是有null参与的运算结果一定是null。</p>
 <p>ifnull（） 空处理函数</p>
 <p>ifnull（可能为null的数据，被当做什么处理）：属于单行处理函数。</p>
 <p>所以计算每个员工的年薪应该这样</p>
-<p><strong>select ename,(sal+ifnull(comm,0))<img src="/image-20200329031429204.png" alt="image-20200329031429204">12 as yearsal from emp;</strong></p>
+<p><strong>select ename,(sal+ifnull(comm,0))<img src="/blog/huangxiaol/blog.git/2020/03/29/%E5%88%86%E7%BB%84%E5%87%BD%E6%95%B0/image-20200329031429204.png" alt="image-20200329031429204">12 as yearsal from emp;</strong></p>
 <p>怎么证明分组函数忽略null？</p>
 <p><strong>select sum(comm) from emp;</strong></p>
-<p><img src="/image-20200329031556802.png" alt="image-20200329031556802"></p>
+<p><img src="/blog/huangxiaol/blog.git/2020/03/29/%E5%88%86%E7%BB%84%E5%87%BD%E6%95%B0/image-20200329031556802.png" alt="image-20200329031556802"></p>
 <p>如图，计算出sum为2200，如果没有忽略null，则计算结果应该是null。</p>
 
       </div>

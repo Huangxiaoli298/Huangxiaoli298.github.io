@@ -85,13 +85,13 @@
 
 
 
-<p><img src="/image-20200127224048656.png" alt="image-20200127224048656"></p>
+<p><img src="/blog/huangxiaol/blog.git/2020/01/27/servlet-1/image-20200127224048656.png" alt="image-20200127224048656"></p>
 <p>​        在web.xml中部署servlet。</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">包括两个部分 servlet与servlet-mapping两部分</span><br><span class="line"> --&gt;</span><br><span class="line"> <span class="tag">&lt;<span class="name">servlet</span>&gt;</span></span><br><span class="line"> <span class="comment">&lt;!-- servlet-name 可自定义；但是要唯一 --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">servlet-name</span>&gt;</span>helloServlet<span class="tag">&lt;/<span class="name">servlet-name</span>&gt;</span></span><br><span class="line">  <span class="comment">&lt;!-- servlet-class servlet的完全限定名 由包名与类名组成</span></span><br><span class="line"><span class="comment">  检查是否写错的办法：Ctrl+鼠标左键看是否能跳转  --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">servlet-class</span>&gt;</span>huang.servlet.helloservlet<span class="tag">&lt;/<span class="name">servlet-class</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;/<span class="name">servlet</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">servlet-mapping</span>&gt;</span></span><br><span class="line"> <span class="comment">&lt;!-- 和servlet标签中的servlet-name 要一致 --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">servlet-name</span>&gt;</span>helloServlet<span class="tag">&lt;/<span class="name">servlet-name</span>&gt;</span></span><br><span class="line">  <span class="comment">&lt;!-- 也可以叫servlet-name：这个名称是访问名称 也就是请求路径 --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">url-pattern</span>&gt;</span>/hello<span class="tag">&lt;/<span class="name">url-pattern</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;/<span class="name">servlet-mapping</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
 <p> 关于servlet的xml文件配置如上</p>
 <p>发布项目并访问 访问地址为localhost:8080/helloservlet/hello 带上<url-pattern>标签中的url名。</url-pattern></p>
-<p><img src="/image-20200128145713333.png" alt="image-20200128145713333"></p>
+<p><img src="/blog/huangxiaol/blog.git/2020/01/27/servlet-1/image-20200128145713333.png" alt="image-20200128145713333"></p>
 <p>​        成功结果如图。</p>
 
       </div>

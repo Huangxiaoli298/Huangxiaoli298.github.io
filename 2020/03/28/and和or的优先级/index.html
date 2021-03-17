@@ -83,14 +83,14 @@
         <p>​        <strong>and和or的优先级</strong><span id="more"></span></p>
 <p><strong>找出工作岗位是MANAGER和SALESMAN的员工？</strong></p>
 <p><strong>select ename,job from emp where job = ‘MANAGER’ or job = ‘SALESMAN’;</strong></p>
-<p><img src="/image-20200328155456671.png" alt="image-20200328155456671"></p>
+<p><img src="/blog/huangxiaol/blog.git/2020/03/28/and%E5%92%8Cor%E7%9A%84%E4%BC%98%E5%85%88%E7%BA%A7/image-20200328155456671.png" alt="image-20200328155456671"></p>
 <p><strong>and和or联合起来用：找出薪资大于1000的并且部门编号是20或30部门的员工</strong></p>
 <p><strong>select ename,sal,deptno from emp where sal &gt; 1000 and deptno = 20 or deptno = 30;</strong></p>
 <p>以上代码会解读为首先找出薪资大于1000并且部门编号为20,然后再找出所有部门编号为30的。</p>
-<p><img src="/image-20200328160444859.png" alt="image-20200328160444859"></p>
+<p><img src="/blog/huangxiaol/blog.git/2020/03/28/and%E5%92%8Cor%E7%9A%84%E4%BC%98%E5%85%88%E7%BA%A7/image-20200328160444859.png" alt="image-20200328160444859"></p>
 <p>所以应该确定大前提为薪资大于1000.</p>
 <p><strong>select ename,sal,deptno from emp where sal &gt; 1000 and (deptno = 20 or deptno = 30);</strong></p>
-<p>​                                                <strong><img src="/image-20200328160549615.png" alt="image-20200328160549615"></strong>          </p>
+<p>​                                                <strong><img src="/blog/huangxiaol/blog.git/2020/03/28/and%E5%92%8Cor%E7%9A%84%E4%BC%98%E5%85%88%E7%BA%A7/image-20200328160549615.png" alt="image-20200328160549615"></strong>          </p>
 <hr>
 
       </div>

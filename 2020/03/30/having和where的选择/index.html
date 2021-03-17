@@ -83,19 +83,19 @@
         <p>​        <strong>having和where的选择</strong><span id="more"></span></p>
 <p><strong>找出每个部门的最高薪资，要求显示薪资大于2900的数据。</strong></p>
 <p><strong>第一步：找出每个部门的最高薪资：select max(sal),deptno,job from emp group by deptno;</strong></p>
-<p><img src="/image-20200330225647539.png" alt="image-20200330225647539"></p>
+<p><img src="/blog/huangxiaol/blog.git/2020/03/30/having%E5%92%8Cwhere%E7%9A%84%E9%80%89%E6%8B%A9/image-20200330225647539.png" alt="image-20200330225647539"></p>
 <p><strong>第二步：找出薪资大于2900：</strong></p>
 <p><strong>select max(sal),deptno,job from emp group by deptno having max(sal) &gt; 2900;//效率较低</strong></p>
-<p><img src="/image-20200331202622713.png" alt="image-20200331202622713"></p>
+<p><img src="/blog/huangxiaol/blog.git/2020/03/30/having%E5%92%8Cwhere%E7%9A%84%E9%80%89%E6%8B%A9/image-20200331202622713.png" alt="image-20200331202622713"></p>
 <p><strong>select max(sal),deptno,job from emp where sal &gt; 2900 group by deptno;//效率较高，建议能够使用where过滤的尽量使用where</strong></p>
-<p><img src="/image-20200331202817168.png" alt="image-20200331202817168"></p>
+<p><img src="/blog/huangxiaol/blog.git/2020/03/30/having%E5%92%8Cwhere%E7%9A%84%E9%80%89%E6%8B%A9/image-20200331202817168.png" alt="image-20200331202817168"></p>
 <p><strong>找出每个部门的平均薪资，要求显示薪资大于2000的数据</strong></p>
 <p><strong>第一步：找出每个部门的平均薪资</strong></p>
 <p><strong>mysql&gt; select deptno,avg(sal) from emp group by deptno;</strong></p>
-<p><img src="/image-20200331203153436.png" alt="image-20200331203153436"></p>
+<p><img src="/blog/huangxiaol/blog.git/2020/03/30/having%E5%92%8Cwhere%E7%9A%84%E9%80%89%E6%8B%A9/image-20200331203153436.png" alt="image-20200331203153436"></p>
 <p><strong>第二步：要求显示薪资大于2000的数据</strong></p>
 <p><strong>select deptno,avg(sal) from emp group by deptno having avg(sal) &gt; 2000;</strong></p>
-<p><img src="/image-20200331203341118.png" alt="image-20200331203341118">  </p>
+<p><img src="/blog/huangxiaol/blog.git/2020/03/30/having%E5%92%8Cwhere%E7%9A%84%E9%80%89%E6%8B%A9/image-20200331203341118.png" alt="image-20200331203341118">  </p>
 <p><strong>where后面不能使用分组函数：</strong></p>
 <p><strong>select deptno,avg(sal) from emp where avg(sal) &gt; 2000 group by deptno;</strong></p>
 <p><strong>会报错，所以只能使用having</strong></p>
