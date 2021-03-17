@@ -11,7 +11,7 @@
   <meta name="description" content="">
   <script id="hexo-configurations">
   var CONFIG = {
-    root: '/blog/',
+    root: '/',
     theme: 'll',
     version: '0.3.9',
     localsearch:{
@@ -25,7 +25,7 @@
   };
 </script>
 
-  <link rel="shortcut icon" href="/blog/favicon.ico">
+  <link rel="shortcut icon" href="/favicon.ico">
   <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/theme-lx@0.3.9/source/css/main.min.css">
   <style type="text/css">
     pre,
@@ -68,7 +68,7 @@
 <div id="lx-aside" style="background-image: url(//cdn.jsdelivr.net/npm/theme-lx@0.3.9/source/images/post_cover.jpeg)" data-stellar-background-ratio="0.5">
   <div class="overlay">
   <div class="page-title">
-    <div class="avatar"><a href="/blog/"><img src="/blog/images/avatar.jpeg"></a></div>
+    <div class="avatar"><a href="/"><img src="/images/avatar.jpeg"></a></div>
     <span>2020-06-14</span>
     <h2>反射机制-通过Class...</h2>
     
@@ -83,21 +83,21 @@
         <p>​        <strong>反射机制-通过Class类创建java对象</strong><span id="more"></span></p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> fanshe;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ReflectTest02</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> Exception</span>&#123;</span><br><span class="line">		<span class="comment">//将A.class文件装载到jvm中的过程</span></span><br><span class="line">		Class.forName(<span class="string">&quot;fanshe.A&quot;</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">	<span class="keyword">static</span> &#123;</span><br><span class="line">		System.out.println(<span class="string">&quot;A.....&quot;</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
-<p><img src="/blog/huangxiaol/blog.git/2020/06/14/%E5%8F%8D%E5%B0%84%E6%9C%BA%E5%88%B6-%E9%80%9A%E8%BF%87Class%E7%B1%BB%E5%88%9B%E5%BB%BAjava%E5%AF%B9%E8%B1%A1/image-20200614205219263.png" alt="image-20200614205219263"></p>
+<p><img src="/2020/06/14/%E5%8F%8D%E5%B0%84%E6%9C%BA%E5%88%B6-%E9%80%9A%E8%BF%87Class%E7%B1%BB%E5%88%9B%E5%BB%BAjava%E5%AF%B9%E8%B1%A1/image-20200614205219263.png" alt="image-20200614205219263"></p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> fanshe;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ReflectTest02</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> Exception</span>&#123;</span><br><span class="line">		<span class="comment">//将A.class文件装载到jvm中的过程</span></span><br><span class="line">		<span class="comment">//Class.forName(&quot;fanshe.A&quot;);</span></span><br><span class="line">		Class c = A.class;<span class="comment">//不会执行静态语句块</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">	<span class="keyword">static</span> &#123;</span><br><span class="line">		System.out.println(<span class="string">&quot;A.....&quot;</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
-<p><img src="/blog/huangxiaol/blog.git/2020/06/14/%E5%8F%8D%E5%B0%84%E6%9C%BA%E5%88%B6-%E9%80%9A%E8%BF%87Class%E7%B1%BB%E5%88%9B%E5%BB%BAjava%E5%AF%B9%E8%B1%A1/image-20200614205325448.png" alt="image-20200614205325448"></p>
+<p><img src="/2020/06/14/%E5%8F%8D%E5%B0%84%E6%9C%BA%E5%88%B6-%E9%80%9A%E8%BF%87Class%E7%B1%BB%E5%88%9B%E5%BB%BAjava%E5%AF%B9%E8%B1%A1/image-20200614205325448.png" alt="image-20200614205325448"></p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> fanshe;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Employee</span> </span>&#123;</span><br><span class="line">	<span class="comment">//Field</span></span><br><span class="line">	<span class="keyword">private</span> String name;</span><br><span class="line">	</span><br><span class="line">	<span class="comment">//Constructor</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">Employee</span><span class="params">()</span> </span>&#123;System.out.println(<span class="string">&quot;Employee的无参数构造方法执行&quot;</span>);&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">Employee</span><span class="params">(String name)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.name = name;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="comment">//方法</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">work</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		System.out.println(name + <span class="string">&quot;is working!&quot;</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">	</span><br></pre></td></tr></table></figure>
 
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> fanshe;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ReflectTest03</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> Exception</span>&#123;</span><br><span class="line">		Class c = Class.forName(<span class="string">&quot;fanshe.Employee&quot;</span>);</span><br><span class="line">		<span class="comment">//创建由此 类对象表示的类的新实例。</span></span><br><span class="line">		</span><br><span class="line">		Object o = c.newInstance();<span class="comment">//调用了Employee的无参数构造方法</span></span><br><span class="line">		System.out.println(o);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p><img src="/blog/huangxiaol/blog.git/2020/06/14/%E5%8F%8D%E5%B0%84%E6%9C%BA%E5%88%B6-%E9%80%9A%E8%BF%87Class%E7%B1%BB%E5%88%9B%E5%BB%BAjava%E5%AF%B9%E8%B1%A1/image-20200614210640847.png" alt="image-20200614210640847"></p>
+<p><img src="/2020/06/14/%E5%8F%8D%E5%B0%84%E6%9C%BA%E5%88%B6-%E9%80%9A%E8%BF%87Class%E7%B1%BB%E5%88%9B%E5%BB%BAjava%E5%AF%B9%E8%B1%A1/image-20200614210640847.png" alt="image-20200614210640847"></p>
 <p><strong>如果将Employee的无参数构造方法去掉会怎样？</strong></p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> fanshe;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Employee</span> </span>&#123;</span><br><span class="line">	<span class="comment">//Field</span></span><br><span class="line">	<span class="keyword">private</span> String name;</span><br><span class="line">	</span><br><span class="line">	<span class="comment">//Constructor</span></span><br><span class="line">	<span class="comment">//public Employee() &#123;System.out.println(&quot;Employee的无参数构造方法执行&quot;);&#125;</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">Employee</span><span class="params">(String name)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.name = name;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="comment">//方法</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">work</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		System.out.println(name + <span class="string">&quot;is working!&quot;</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> fanshe;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ReflectTest03</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> Exception</span>&#123;</span><br><span class="line">		Class c = Class.forName(<span class="string">&quot;fanshe.Employee&quot;</span>);</span><br><span class="line">		<span class="comment">//创建由此 类对象表示的类的新实例。</span></span><br><span class="line">		</span><br><span class="line">		Object o = c.newInstance();</span><br><span class="line">		System.out.println(o);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
-<p><img src="/blog/huangxiaol/blog.git/2020/06/14/%E5%8F%8D%E5%B0%84%E6%9C%BA%E5%88%B6-%E9%80%9A%E8%BF%87Class%E7%B1%BB%E5%88%9B%E5%BB%BAjava%E5%AF%B9%E8%B1%A1/image-20200614210957319.png" alt="image-20200614210957319"></p>
+<p><img src="/2020/06/14/%E5%8F%8D%E5%B0%84%E6%9C%BA%E5%88%B6-%E9%80%9A%E8%BF%87Class%E7%B1%BB%E5%88%9B%E5%BB%BAjava%E5%AF%B9%E8%B1%A1/image-20200614210957319.png" alt="image-20200614210957319"></p>
 <p>可以看见如果想要用class对象来创建该类的新对象，则该类必须由无参数构造方法。  </p>
 
       </div>
@@ -107,7 +107,7 @@
 <div class="lx-navigation">
 	<div class="lx-cover prev lx-cover-sm" style="background-image: url(//cdn.jsdelivr.net/npm/theme-lx@0.3.9/source/images/footer-l.jpeg)">
 		<div class="overlay"></div>
-		<a class="copy" href="/blog/2020/10/12/JavaWeb%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BA%B2-%E4%BA%92%E8%81%94%E7%BD%91%E9%80%9A%E4%BF%A1%E6%B5%81%E7%A8%8B/">
+		<a class="copy" href="/2020/10/12/JavaWeb%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BA%B2-%E4%BA%92%E8%81%94%E7%BD%91%E9%80%9A%E4%BF%A1%E6%B5%81%E7%A8%8B/">
 			<div class="display-t">
 				<div class="display-tc">
 					<div>
@@ -120,7 +120,7 @@
 	</div>
         <div class="lx-cover next lx-cover-sm" style="background-image: url(//cdn.jsdelivr.net/npm/theme-lx@0.3.9/source/images/footer-r.jpeg)">
 		<div class="overlay"></div>
-		<a class="copy" href="/blog/2020/06/10/%E5%8F%8D%E5%B0%84%E6%9C%BA%E5%88%B6-%E8%8E%B7%E5%8F%96Class%E7%9A%84%E4%B8%89%E7%A7%8D%E6%96%B9%E5%BC%8F/">
+		<a class="copy" href="/2020/06/10/%E5%8F%8D%E5%B0%84%E6%9C%BA%E5%88%B6-%E8%8E%B7%E5%8F%96Class%E7%9A%84%E4%B8%89%E7%A7%8D%E6%96%B9%E5%BC%8F/">
 			<div class="display-t">
 				<div class="display-tc">
 					<div>
@@ -137,7 +137,7 @@
 
 <footer>
   <div>
-  Copyright &copy; 2021.<a href="/blog/">Hexo</a><br>Powered by <a href="https://hexo.io" target="_blank">Hexo</a> | Theme <a href="https://lx.js.org" target="_blank">Lx</a><br>
+  Copyright &copy; 2021.<a href="/">Hexo</a><br>Powered by <a href="https://hexo.io" target="_blank">Hexo</a> | Theme <a href="https://lx.js.org" target="_blank">Lx</a><br>
   </div>
 </footer>
 
@@ -154,7 +154,7 @@
       <div class="col">
         <div class="row for-pic">
           <div class="profile-pic">
-            <a href="/blog/"><img src="/blog/images/avatar.jpeg" alt="John Doe"/></a>
+            <a href="/"><img src="/images/avatar.jpeg" alt="John Doe"/></a>
           </div>
         </div>
         <div class="row for-name">
@@ -167,16 +167,16 @@
   <nav class="menu-container">
   <ul class="menu-items">
     <li><a href="/"><i class="fa fa-home fa-fw"></i>Home</a></li>
-    <li><a href="/blog/archives/"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
+    <li><a href="/archives/"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
     <li class="has-sub"><span class="dropdown-heading">
       <i class="fa fa-th-list fa-fw"></i>Categories</span>
-        <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/blog/categories/JDBC/">JDBC</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/JavaWeb/">JavaWeb</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/MySQL/">MySQL</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/Mybatis/">Mybatis</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/Mysql/">Mysql</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/Servlet/">Servlet</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/Spring/">Spring</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/io%E6%B5%81/">io流</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/java%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80/">java语言基础</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/maven/">maven</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/servlet/">servlet</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/%E5%88%86%E7%BB%84%E5%87%BD%E6%95%B0/">分组函数</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/%E5%8F%8D%E5%B0%84%E6%9C%BA%E5%88%B6/">反射机制</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/%E5%A4%9A%E7%BA%BF%E7%A8%8B/">多线程</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/%E5%BC%82%E5%B8%B8%E6%9C%BA%E5%88%B6/">异常机制</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/%E6%95%B0%E7%BB%84/">数组</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/">面向对象</a></li></ul>
+        <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/JDBC/">JDBC</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/JavaWeb/">JavaWeb</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/MySQL/">MySQL</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Mybatis/">Mybatis</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Mysql/">Mysql</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Servlet/">Servlet</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Spring/">Spring</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/io%E6%B5%81/">io流</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/java%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80/">java语言基础</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/maven/">maven</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/servlet/">servlet</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%88%86%E7%BB%84%E5%87%BD%E6%95%B0/">分组函数</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%8F%8D%E5%B0%84%E6%9C%BA%E5%88%B6/">反射机制</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%A4%9A%E7%BA%BF%E7%A8%8B/">多线程</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%BC%82%E5%B8%B8%E6%9C%BA%E5%88%B6/">异常机制</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%95%B0%E7%BB%84/">数组</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/">面向对象</a></li></ul>
     </li>
     <li class="has-sub"><span class="dropdown-heading">
       <i class="fa fa-bookmark fa-fw"></i>Pages</span>
         <ul>
-          <li><a href="/blog/guestbook/">Guestbook</a></li>
-        <li><a href="/blog/about/">About</a></li>
+          <li><a href="/guestbook/">Guestbook</a></li>
+        <li><a href="/about/">About</a></li>
         </ul>
     </li>
     <li class="has-sub"><span class="dropdown-heading">

@@ -11,7 +11,7 @@
   <meta name="description" content="">
   <script id="hexo-configurations">
   var CONFIG = {
-    root: '/blog/',
+    root: '/',
     theme: 'll',
     version: '0.3.9',
     localsearch:{
@@ -25,7 +25,7 @@
   };
 </script>
 
-  <link rel="shortcut icon" href="/blog/favicon.ico">
+  <link rel="shortcut icon" href="/favicon.ico">
   <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/theme-lx@0.3.9/source/css/main.min.css">
   <style type="text/css">
     pre,
@@ -68,7 +68,7 @@
 <div id="lx-aside" style="background-image: url(//cdn.jsdelivr.net/npm/theme-lx@0.3.9/source/images/post_cover.jpeg)" data-stellar-background-ratio="0.5">
   <div class="overlay">
   <div class="page-title">
-    <div class="avatar"><a href="/blog/"><img src="/blog/images/avatar.jpeg"></a></div>
+    <div class="avatar"><a href="/"><img src="/images/avatar.jpeg"></a></div>
     <span>2020-03-30</span>
     <h2>having和where...</h2>
     
@@ -83,19 +83,19 @@
         <p>​        <strong>having和where的选择</strong><span id="more"></span></p>
 <p><strong>找出每个部门的最高薪资，要求显示薪资大于2900的数据。</strong></p>
 <p><strong>第一步：找出每个部门的最高薪资：select max(sal),deptno,job from emp group by deptno;</strong></p>
-<p><img src="/blog/huangxiaol/blog.git/2020/03/30/having%E5%92%8Cwhere%E7%9A%84%E9%80%89%E6%8B%A9/image-20200330225647539.png" alt="image-20200330225647539"></p>
+<p><img src="/2020/03/30/having%E5%92%8Cwhere%E7%9A%84%E9%80%89%E6%8B%A9/image-20200330225647539.png" alt="image-20200330225647539"></p>
 <p><strong>第二步：找出薪资大于2900：</strong></p>
 <p><strong>select max(sal),deptno,job from emp group by deptno having max(sal) &gt; 2900;//效率较低</strong></p>
-<p><img src="/blog/huangxiaol/blog.git/2020/03/30/having%E5%92%8Cwhere%E7%9A%84%E9%80%89%E6%8B%A9/image-20200331202622713.png" alt="image-20200331202622713"></p>
+<p><img src="/2020/03/30/having%E5%92%8Cwhere%E7%9A%84%E9%80%89%E6%8B%A9/image-20200331202622713.png" alt="image-20200331202622713"></p>
 <p><strong>select max(sal),deptno,job from emp where sal &gt; 2900 group by deptno;//效率较高，建议能够使用where过滤的尽量使用where</strong></p>
-<p><img src="/blog/huangxiaol/blog.git/2020/03/30/having%E5%92%8Cwhere%E7%9A%84%E9%80%89%E6%8B%A9/image-20200331202817168.png" alt="image-20200331202817168"></p>
+<p><img src="/2020/03/30/having%E5%92%8Cwhere%E7%9A%84%E9%80%89%E6%8B%A9/image-20200331202817168.png" alt="image-20200331202817168"></p>
 <p><strong>找出每个部门的平均薪资，要求显示薪资大于2000的数据</strong></p>
 <p><strong>第一步：找出每个部门的平均薪资</strong></p>
 <p><strong>mysql&gt; select deptno,avg(sal) from emp group by deptno;</strong></p>
-<p><img src="/blog/huangxiaol/blog.git/2020/03/30/having%E5%92%8Cwhere%E7%9A%84%E9%80%89%E6%8B%A9/image-20200331203153436.png" alt="image-20200331203153436"></p>
+<p><img src="/2020/03/30/having%E5%92%8Cwhere%E7%9A%84%E9%80%89%E6%8B%A9/image-20200331203153436.png" alt="image-20200331203153436"></p>
 <p><strong>第二步：要求显示薪资大于2000的数据</strong></p>
 <p><strong>select deptno,avg(sal) from emp group by deptno having avg(sal) &gt; 2000;</strong></p>
-<p><img src="/blog/huangxiaol/blog.git/2020/03/30/having%E5%92%8Cwhere%E7%9A%84%E9%80%89%E6%8B%A9/image-20200331203341118.png" alt="image-20200331203341118">  </p>
+<p><img src="/2020/03/30/having%E5%92%8Cwhere%E7%9A%84%E9%80%89%E6%8B%A9/image-20200331203341118.png" alt="image-20200331203341118">  </p>
 <p><strong>where后面不能使用分组函数：</strong></p>
 <p><strong>select deptno,avg(sal) from emp where avg(sal) &gt; 2000 group by deptno;</strong></p>
 <p><strong>会报错，所以只能使用having</strong></p>
@@ -107,7 +107,7 @@
 <div class="lx-navigation">
 	<div class="lx-cover prev lx-cover-sm" style="background-image: url(//cdn.jsdelivr.net/npm/theme-lx@0.3.9/source/images/footer-l.jpeg)">
 		<div class="overlay"></div>
-		<a class="copy" href="/blog/2020/03/31/%E6%80%BB%E7%BB%93DQL%E8%AF%AD%E5%8F%A5%E6%89%A7%E8%A1%8C%E7%9A%84%E9%A1%BA%E5%BA%8F/">
+		<a class="copy" href="/2020/03/31/%E6%80%BB%E7%BB%93DQL%E8%AF%AD%E5%8F%A5%E6%89%A7%E8%A1%8C%E7%9A%84%E9%A1%BA%E5%BA%8F/">
 			<div class="display-t">
 				<div class="display-tc">
 					<div>
@@ -120,7 +120,7 @@
 	</div>
         <div class="lx-cover next lx-cover-sm" style="background-image: url(//cdn.jsdelivr.net/npm/theme-lx@0.3.9/source/images/footer-r.jpeg)">
 		<div class="overlay"></div>
-		<a class="copy" href="/blog/2020/03/29/%E5%88%86%E7%BB%84%E6%9F%A5%E8%AF%A2/">
+		<a class="copy" href="/2020/03/29/%E5%88%86%E7%BB%84%E6%9F%A5%E8%AF%A2/">
 			<div class="display-t">
 				<div class="display-tc">
 					<div>
@@ -137,7 +137,7 @@
 
 <footer>
   <div>
-  Copyright &copy; 2021.<a href="/blog/">Hexo</a><br>Powered by <a href="https://hexo.io" target="_blank">Hexo</a> | Theme <a href="https://lx.js.org" target="_blank">Lx</a><br>
+  Copyright &copy; 2021.<a href="/">Hexo</a><br>Powered by <a href="https://hexo.io" target="_blank">Hexo</a> | Theme <a href="https://lx.js.org" target="_blank">Lx</a><br>
   </div>
 </footer>
 
@@ -154,7 +154,7 @@
       <div class="col">
         <div class="row for-pic">
           <div class="profile-pic">
-            <a href="/blog/"><img src="/blog/images/avatar.jpeg" alt="John Doe"/></a>
+            <a href="/"><img src="/images/avatar.jpeg" alt="John Doe"/></a>
           </div>
         </div>
         <div class="row for-name">
@@ -167,16 +167,16 @@
   <nav class="menu-container">
   <ul class="menu-items">
     <li><a href="/"><i class="fa fa-home fa-fw"></i>Home</a></li>
-    <li><a href="/blog/archives/"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
+    <li><a href="/archives/"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
     <li class="has-sub"><span class="dropdown-heading">
       <i class="fa fa-th-list fa-fw"></i>Categories</span>
-        <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/blog/categories/JDBC/">JDBC</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/JavaWeb/">JavaWeb</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/MySQL/">MySQL</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/Mybatis/">Mybatis</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/Mysql/">Mysql</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/Servlet/">Servlet</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/Spring/">Spring</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/io%E6%B5%81/">io流</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/java%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80/">java语言基础</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/maven/">maven</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/servlet/">servlet</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/%E5%88%86%E7%BB%84%E5%87%BD%E6%95%B0/">分组函数</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/%E5%8F%8D%E5%B0%84%E6%9C%BA%E5%88%B6/">反射机制</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/%E5%A4%9A%E7%BA%BF%E7%A8%8B/">多线程</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/%E5%BC%82%E5%B8%B8%E6%9C%BA%E5%88%B6/">异常机制</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/%E6%95%B0%E7%BB%84/">数组</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/">面向对象</a></li></ul>
+        <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/JDBC/">JDBC</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/JavaWeb/">JavaWeb</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/MySQL/">MySQL</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Mybatis/">Mybatis</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Mysql/">Mysql</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Servlet/">Servlet</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Spring/">Spring</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/io%E6%B5%81/">io流</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/java%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80/">java语言基础</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/maven/">maven</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/servlet/">servlet</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%88%86%E7%BB%84%E5%87%BD%E6%95%B0/">分组函数</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%8F%8D%E5%B0%84%E6%9C%BA%E5%88%B6/">反射机制</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%A4%9A%E7%BA%BF%E7%A8%8B/">多线程</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%BC%82%E5%B8%B8%E6%9C%BA%E5%88%B6/">异常机制</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%95%B0%E7%BB%84/">数组</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/">面向对象</a></li></ul>
     </li>
     <li class="has-sub"><span class="dropdown-heading">
       <i class="fa fa-bookmark fa-fw"></i>Pages</span>
         <ul>
-          <li><a href="/blog/guestbook/">Guestbook</a></li>
-        <li><a href="/blog/about/">About</a></li>
+          <li><a href="/guestbook/">Guestbook</a></li>
+        <li><a href="/about/">About</a></li>
         </ul>
     </li>
     <li class="has-sub"><span class="dropdown-heading">
