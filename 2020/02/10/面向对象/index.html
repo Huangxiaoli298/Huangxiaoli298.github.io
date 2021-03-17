@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>面向对象 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="author" content="John Doe">
+  <meta name="keywords" content="">
+  <meta name="description" content="">
+  <script id="hexo-configurations">
+  var CONFIG = {
+    root: '/',
+    theme: 'lx',
+    version: '1.4.5',
+    localsearch:{
+      "enable": false,
+      "trigger": "auto",
+      "top_n_per_article": 1,
+      "unescape": false,
+      "preload": false
+      },
+    path: '-'
+  };
+</script>
+
+  <link rel="shortcut icon" href="/images/fav-1.png">
+  <link rel="stylesheet" href="/css/main.css">
+  <script src="/js/jquery.min.js"></script>
+  <script src="/js/jquery.jside.menu.js"></script>
+	<script>
+	$(document).ready(function(){
+	$(".menu-container").jSideMenu({
+	    jSidePosition: "position-right",
+	    jSideSticky: true,
+	    jSideSkin: "endless-river",
+	     });
+	}); 
+	</script>
+  
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:300|Noto+Serif+SC&amp;display=swap">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/font-awesome@4/css/font-awesome.min.css">
+<meta name="generator" content="Hexo 5.4.0"></head>
+<body>
+<div class="single">
+<div id="page">
+<div id="lx-aside" style="background-image: url(/images/bg-2.png)" data-stellar-background-ratio="0.5">
+  <div class="overlay">
+  <div class="page-title">
+    <div class="avatar"><a href="/"><img src="/images/ava-1.png"></a></div>
+    <span>2020-02-10</span>
+    <h2>面向对象</h2>
+    
+    </div>
+</div>
+</div>
+<div id="lx-main-content">
+  <div class="lx-post">
+    <div class="lx-entry padding">
+      <div>
+        <p>​        <strong>面向对象</strong><span id="more"></span></p>
+<p>——面向对象的三大特征</p>
+<p>​        封装</p>
+<p>​        继承</p>
+<p>​        多态</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//定义现实世界中的学生类型</span></span><br><span class="line"><span class="comment">//Student是一个类</span></span><br><span class="line"><span class="comment">//概念上的定义，现实世界当中不存在</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Student</span> </span>&#123;</span><br><span class="line">		<span class="comment">//属性</span></span><br><span class="line">	</span><br><span class="line">		<span class="comment">//学号</span></span><br><span class="line">		<span class="keyword">int</span> id;<span class="comment">//成员变量</span></span><br><span class="line">		<span class="comment">//id是对象级别的，必须先有对象才能访问，不能使用类直接访问</span></span><br><span class="line">		</span><br><span class="line">		<span class="comment">//姓名</span></span><br><span class="line">		String name;</span><br><span class="line">		</span><br><span class="line">		<span class="comment">//性别</span></span><br><span class="line">		<span class="keyword">boolean</span> sex;</span><br><span class="line">		</span><br><span class="line">		<span class="comment">//年龄</span></span><br><span class="line">		<span class="keyword">int</span> ag;</span><br><span class="line">		</span><br><span class="line">		<span class="comment">//住址		</span></span><br><span class="line">		String addr;</span><br><span class="line">		</span><br><span class="line">		<span class="comment">//方法</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test01</span> </span>&#123;</span><br><span class="line">		<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">			<span class="comment">//stu1是一个局部变量，这个局部变量su1是student类型，也就是一个引用类型</span></span><br><span class="line">			Student stu1 = <span class="keyword">new</span> Student();</span><br><span class="line">			</span><br><span class="line">			<span class="comment">//Student stu2 = new Student();</span></span><br><span class="line">			<span class="comment">//如何使用对象</span></span><br><span class="line">		&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>​        new关键字会在jvm中的堆内存当中开辟一块内存保存student类型对象，并将该类型对象的堆内存地址赋值给stu1</p>
+<p><img src="/2020/02/10/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/image-20200211135707882.png" alt="image-20200211135707882"></p>
+<p>​        成员变量如果没有赋值系统会自动赋值</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//对象如何创建使用</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test01</span> </span>&#123;</span><br><span class="line">		<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">			<span class="comment">//stu1是一个局部变量，这个局部变量su1是student类型，也就是一个引用类型</span></span><br><span class="line">			Student stu1 = <span class="keyword">new</span> Student();</span><br><span class="line">			</span><br><span class="line">			<span class="comment">//Student stu2 = new Student();</span></span><br><span class="line">			<span class="comment">//如何使用对象</span></span><br><span class="line">			<span class="comment">//使用对象</span></span><br><span class="line">			<span class="comment">//stu1改局部变量称作引用，引用中保存了对象在堆中的内存地址</span></span><br><span class="line">			<span class="comment">//通过“引用”去简介访问堆中的对象</span></span><br><span class="line">			<span class="comment">//访问成员变量，必须使用“引用”</span></span><br><span class="line">			System.out.println(<span class="string">&quot;id&quot;</span> + stu1.id);</span><br><span class="line">			System.out.println(<span class="string">&quot;name&quot;</span> + stu1.name);</span><br><span class="line">			System.out.println(<span class="string">&quot;age&quot;</span> + stu1.age);</span><br><span class="line">			System.out.println(<span class="string">&quot;sex&quot;</span> + stu1.sex);</span><br><span class="line">			System.out.println(<span class="string">&quot;addr&quot;</span> + stu1.addr);</span><br><span class="line">		&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>​        运行结果如下</p>
+<p><img src="/2020/02/10/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/image-20200211142757310.png" alt="image-20200211142757310"></p>
+<p>关于系统默认值：</p>
+<p>byte short int long    0</p>
+<p>float double 0.0</p>
+<p>boolean   false</p>
+<p>cha    \u000</p>
+<p>引用数据类型： null</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//对象如何创建使用</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test01</span> </span>&#123;</span><br><span class="line">		<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">			<span class="comment">//stu1是一个局部变量，这个局部变量su1是student类型，也就是一个引用类型</span></span><br><span class="line">			Student stu1 = <span class="keyword">new</span> Student();</span><br><span class="line">			</span><br><span class="line">			<span class="comment">//Student stu2 = new Student();</span></span><br><span class="line">			<span class="comment">//如何使用对象</span></span><br><span class="line">			<span class="comment">//使用对象</span></span><br><span class="line">			<span class="comment">//stu1改局部变量称作引用，引用中保存了对象在堆中的内存地址</span></span><br><span class="line">			<span class="comment">//通过“引用”去简介访问堆中的对象</span></span><br><span class="line">			<span class="comment">//访问成员变量，必须使用“引用”</span></span><br><span class="line">			stu1.id = <span class="number">10</span>;</span><br><span class="line">			stu1.name = <span class="string">&quot;张三&quot;</span>;</span><br><span class="line">			stu1.age = <span class="number">20</span>;</span><br><span class="line">			stu1.sex = <span class="keyword">true</span>;</span><br><span class="line">			stu1.addr = <span class="string">&quot;北京胡同&quot;</span>;</span><br><span class="line">			System.out.println(<span class="string">&quot;id&quot;</span> + stu1.id);</span><br><span class="line">			System.out.println(<span class="string">&quot;name&quot;</span> + stu1.name);</span><br><span class="line">			System.out.println(<span class="string">&quot;age&quot;</span> + stu1.age);</span><br><span class="line">			System.out.println(<span class="string">&quot;sex&quot;</span> + stu1.sex);</span><br><span class="line">			System.out.println(<span class="string">&quot;addr&quot;</span> + stu1.addr);</span><br><span class="line">		&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>运行结果如下</p>
+<p><img src="/2020/02/10/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/image-20200211143359399.png" alt="image-20200211143359399"></p>
+<p>​        <strong>面向对象的封装性</strong></p>
+ <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test02</span> </span>&#123;</span><br><span class="line">		<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">			Customer c = <span class="keyword">new</span> Customer();</span><br><span class="line">			System.out.println(c.age);</span><br><span class="line">			c.age = <span class="number">10</span>;</span><br><span class="line">			System.out.println(c.age);</span><br><span class="line">		&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>因为age属性没有任何限制，导致外部程序可以随意访问age，导致age不安全。例如可以将-10赋值给age，但是这是不符合现实逻辑的。</p>
+<p>​        面向对象的封装性指的是：</p>
+<p>​        属性私有化</p>
+<p>​        对外提供setter  and   getter</p>
+<p>例如</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//定义一个顾客类型</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Customer</span> </span>&#123;</span><br><span class="line"><span class="comment">//属性，成员变量</span></span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">int</span> age;<span class="comment">//private 修饰的数据只能在本类当中访问、</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getAge</span><span class="params">()</span> </span>&#123;<span class="comment">//成员方法，实例方法，非静态方法</span></span><br><span class="line">		<span class="keyword">return</span> age;<span class="comment">//成员方法必须使用引用的方式访问</span></span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setAge</span><span class="params">(<span class="keyword">int</span> _age)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">if</span>(_age &lt; <span class="number">0</span> || _age &gt; <span class="number">100</span>) &#123;</span><br><span class="line">			System.out.println(<span class="string">&quot;年龄不合法&quot;</span>);</span><br><span class="line">		&#125;<span class="keyword">else</span> &#123;</span><br><span class="line">		age = _age;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test02</span> </span>&#123;</span><br><span class="line">		<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">			Customer c = <span class="keyword">new</span> Customer();</span><br><span class="line">			c.setAge(<span class="number">20</span>);</span><br><span class="line">			System.out.println(c.getAge());</span><br><span class="line">		&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>​        关于java类的构造函数</p>
+<p>1、构造方法语法：</p>
+<p>​    {修饰符列表}构造方法名（形式参数列表）{方法体}</p>
+<p>2、构造方法的方法名必须和类名一致。</p>
+<p>3、构造方法的作用是什么？</p>
+<p>第一，可以创建对象</p>
+<p>第二，</p>
+<p>4、构造方法应该如何调用？</p>
+<p>new + 构造方法名（实参）；在堆中开辟空间存储对象。</p>
+<p>5、如果一个类没有提供任何构造方法，系统默认提供无参数构造方法，如果一个类手动的提供了构造方法，那么系统不会提供任何构造方法</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">User</span> </span>&#123;</span><br><span class="line">	String name;</span><br><span class="line">	<span class="keyword">int</span> age;</span><br><span class="line">		User()&#123;</span><br><span class="line">			System.out.println(<span class="string">&quot;shadsh&quot;</span>);</span><br><span class="line">		&#125;</span><br><span class="line">		User(<span class="keyword">int</span> _age)&#123;</span><br><span class="line">			age = _age;</span><br><span class="line">		&#125;</span><br><span class="line">		User(String _name)&#123;</span><br><span class="line">			name = _name;</span><br><span class="line">		&#125;</span><br><span class="line">		User(<span class="keyword">int</span> _age , String _name)&#123;</span><br><span class="line">			age = _age;</span><br><span class="line">			name = _name;</span><br><span class="line">		&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ConstructorTest01</span> </span>&#123;</span><br><span class="line">		<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">			<span class="comment">//创建user类型对象</span></span><br><span class="line">		User u1 = <span class="keyword">new</span> User();	</span><br><span class="line">		User u2 = <span class="keyword">new</span> User(<span class="number">10</span>);</span><br><span class="line">		User u3 = <span class="keyword">new</span> User(<span class="string">&quot;huangxiaoli&quot;</span>);</span><br><span class="line">		User u4 = <span class="keyword">new</span> User(<span class="number">10</span> , <span class="string">&quot;huangxiaoli&quot;</span>);</span><br><span class="line">		System.out.println(u1.age);</span><br><span class="line">		System.out.println(u1.name);</span><br><span class="line"></span><br><span class="line">		System.out.println(u2.age);</span><br><span class="line">		System.out.println(u2.name);</span><br><span class="line"></span><br><span class="line">		System.out.println(u3.age);</span><br><span class="line">		System.out.println(u3.name);</span><br><span class="line">		</span><br><span class="line">		System.out.println(u4.age);</span><br><span class="line">		System.out.println(u4.name);</span><br><span class="line">		&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>以上就是构造方法的调用；简单来说构造方法就是在对象建立时顺便做的一些操作例如赋值等。</p>
+<p><img src="/2020/02/10/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/image-20200212161234009.png" alt="image-20200212161234009"></p>
+<p><img src="/2020/02/10/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/image-20200212161549930.png" alt="image-20200212161549930"></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>&#123;</span><br><span class="line">		<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">			User u1 = <span class="keyword">new</span> User();</span><br><span class="line">			<span class="comment">//u1是引用，保存内存地址指向堆中的对象</span></span><br><span class="line">			u1 = <span class="keyword">null</span>;</span><br><span class="line">			<span class="comment">//程序执行到此处，u1不再指向堆中的对象</span></span><br><span class="line">			<span class="comment">//对象变成了垃圾</span></span><br><span class="line">			</span><br><span class="line">			System.out.println(u1.name);</span><br><span class="line">			<span class="comment">//此时会出现空指针异常</span></span><br><span class="line">			</span><br><span class="line">		&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>上代码及对应上图，此时指针为空，导致堆中的对象变成了垃圾。</p>
+<p>——程序在执行过程中，参数的传递问题。</p>
+<p>1、传递的数据是基本数据类型。</p>
+<p>2、传递的数据是引用数据类型。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test03</span> </span>&#123;</span><br><span class="line">		<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">m1</span><span class="params">(<span class="keyword">int</span> i)</span> </span>&#123;</span><br><span class="line">			i++;</span><br><span class="line">			System.out.println(<span class="string">&quot;m1----&gt;&quot;</span> + i);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">			<span class="keyword">int</span> i = <span class="number">10</span>;</span><br><span class="line">			m1(i);</span><br><span class="line">			System.out.println(<span class="string">&quot;main---&gt;&quot;</span> + i);</span><br><span class="line">		&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>以上便是传递基本数据类型</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test04</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">m1</span><span class="params">(Animal a)</span> </span>&#123;</span><br><span class="line">		a.age++;</span><br><span class="line">		System.out.println(<span class="string">&quot;m1---&gt;&quot;</span> + a.age);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		Animal a = <span class="keyword">new</span> Animal(<span class="number">10</span>);</span><br><span class="line">		m1(a);</span><br><span class="line">		System.out.println(<span class="string">&quot;main---&gt;&quot;</span> + a.age);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Animal</span></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> age;</span><br><span class="line">	Animal(<span class="keyword">int</span> _age)&#123;</span><br><span class="line">		age = _age;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<p><img src="/2020/02/10/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/image-20200212202439051.png" alt="image-20200212202439051"></p>
+<p>以上便是引用数据类型传递，总的来说搞清楚对象，方法，局部变量的存储位置，搞清楚栈内存与堆内存即可。</p>
+<p>另外，加static的方法在调用时应该使用静态调用既类名.方法名来调用，如果使用对象名.方法名调用会出现警告但还是可以调用。不加static的非静态方法则必须使用对象名.方法名来调用。</p>
+
+      </div>
+    </div>
+  </div>
+</div>
+<div class="lx-navigation">
+	<div class="lx-cover prev lx-cover-sm" style="background-image: url(/images/footer_1.jpg)">
+		<div class="overlay"></div>
+		<a class="copy" href="/2020/02/12/this%E5%85%B3%E9%94%AE%E5%AD%97/">
+			<div class="display-t">
+				<div class="display-tc">
+					<div>
+						<span>Next</span>
+						<h3>this关键字</h3>
+					</div>
+				</div>
+			</div>
+		</a>
+	</div>
+        <div class="lx-cover next lx-cover-sm" style="background-image: url(/images/footer_2.jpg)">
+		<div class="overlay"></div>
+		<a class="copy" href="/2020/02/08/%E6%96%B9%E6%B3%95%E7%9A%84%E9%87%8D%E8%BD%BD%E4%B8%8E%E9%80%92%E5%BD%92/">
+			<div class="display-t">
+				<div class="display-tc">
+					<div>
+						<span>Prev</span>
+						<h3>方法的重载与递归</h3>
+					</div>
+				</div>
+			</div>
+		</a>
+	</div>
+</div>
+</div>
+
+<footer>
+  <div>
+  Copyright &copy; 2019.<a href="/">Hexo</a><br>Powered by <a href="https://hexo.io" target="_blank">Hexo</a> | Theme <a href="https://lx.blleng.cn" target="_blank">Lx</a><br>
+  </div>
+</footer>
+</div>
+
+<button class="menu-trigger"></button>
+<div class="menu">
+  <div class="menu-head">
+    <span class="layer">
+      <div class="col">
+        <div class="row for-pic">
+          <div class="profile-pic">
+            <a href="/"><img src="/images/ava-1.png" alt="John Doe"/></a>
+          </div>
+        </div>
+        <div class="row for-name">
+          <p>John Doe</p>
+          <span class="tagline">不爱学习的小胖子</span>
+        </div>
+      </div>
+    </span>
+  </div>
+  <nav class="menu-container">
+  <ul class="menu-items">
+    <li><a href="/"><i class="fa fa-home fa-fw"></i>首页</a></li>
+    <li><a href="/archives/"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+    <li class="has-sub"><span class="dropdown-heading">
+      <i class="fa fa-bookmark fa-fw"></i>页面</span>
+        <ul>
+          <li><a href="/guestbook">留言</a></li>
+        <li><a href="/about">关于</a></li>
+        </ul>
+    </li>
+    <li class="has-sub"><span class="dropdown-heading">
+      <i class="fa fa-link fa-fw"></i>友链</span>
+        <ul>
+          <li> <a href="https://lx.blleng.cn" target="_blank">Theme-Lx</a></li>
+        </ul>
+    </li>
+  </ul>
+  </nav>
+</div>
+
+<div class="gototop js-top">
+  <a href="#" class="js-gotop"><i class="fa fa-arrow-up"></i></a>
+</div>
+<script src="/js/jquery.easing.min.js"></script>
+<script src="/js/jquery.waypoints.min.js"></script>
+<script src="/js/jquery.stellar.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+</body>
+</html>

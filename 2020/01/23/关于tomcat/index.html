@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>关于tomcat | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="author" content="John Doe">
+  <meta name="keywords" content="">
+  <meta name="description" content="">
+  <script id="hexo-configurations">
+  var CONFIG = {
+    root: '/',
+    theme: 'lx',
+    version: '1.4.5',
+    localsearch:{
+      "enable": false,
+      "trigger": "auto",
+      "top_n_per_article": 1,
+      "unescape": false,
+      "preload": false
+      },
+    path: '-'
+  };
+</script>
+
+  <link rel="shortcut icon" href="/images/fav-1.png">
+  <link rel="stylesheet" href="/css/main.css">
+  <script src="/js/jquery.min.js"></script>
+  <script src="/js/jquery.jside.menu.js"></script>
+	<script>
+	$(document).ready(function(){
+	$(".menu-container").jSideMenu({
+	    jSidePosition: "position-right",
+	    jSideSticky: true,
+	    jSideSkin: "endless-river",
+	     });
+	}); 
+	</script>
+  
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:300|Noto+Serif+SC&amp;display=swap">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/font-awesome@4/css/font-awesome.min.css">
+<meta name="generator" content="Hexo 5.4.0"></head>
+<body>
+<div class="single">
+<div id="page">
+<div id="lx-aside" style="background-image: url(/images/bg-2.png)" data-stellar-background-ratio="0.5">
+  <div class="overlay">
+  <div class="page-title">
+    <div class="avatar"><a href="/"><img src="/images/ava-1.png"></a></div>
+    <span>2020-01-23</span>
+    <h2>关于tomcat</h2>
+    
+    </div>
+</div>
+</div>
+<div id="lx-main-content">
+  <div class="lx-post">
+    <div class="lx-entry padding">
+      <div>
+        <p>​    <span id="more"></span><img src="/2020/01/23/%E5%85%B3%E4%BA%8Etomcat/001.png" alt="001" style="zoom: 25%;"></p>
+<p> bin文件夹：常用的一些命令，如启动停止。</p>
+<p>conf：存放一些配置文件。</p>
+<p>logs：存放日志。</p>
+<p>webapps：存放的web应用程序。</p>
+<p>work：存放编译运行后的文件。</p>
+   <img src="/2020/01/23/%E5%85%B3%E4%BA%8Etomcat/image-20200123192904568.png" alt="image-20200123192904568" style="zoom:33%;">
+
+<p>Conf：里的配置文件：context.xml 配置上下文环境，如JNDI，连接池。</p>
+<p>server.xml：配置服务器的信息，还有一些应用信息。如端口号，虚拟路径等。</p>
+<p>web.xml：是web应用的部署文件，tomcat工作原理等。一般情况下只是查看此文件。</p>
+<p>tomcatusers.xml：配置了tomcat用户管理</p>
+<p>​      如何在tomcat中部署一个静态应用：直接将静态项目放入webapps目录下。直接访问即可。</p>
+<p>localhost的配置：Windows/System32/drivers/etc/host</p>
+<p>端口号：http默认端口号为80</p>
+<p>当项目指定为根，就不用在url上写项目名。</p>
+   <img src="/2020/01/23/%E5%85%B3%E4%BA%8Etomcat/image-20200123193045467.png" alt="image-20200123193045467" style="zoom:33%;">
+
+<p>​      一个tomcat中只能存在一个根目录，想指定其他根目录就得此目录删除复制root&gt;WEB-INF目录下的web.xml文件并复制到想要指定的根项目中。</p>
+<p>​    <img src="/2020/01/23/%E5%85%B3%E4%BA%8Etomcat/image-20200123200121030.png" alt="image-20200123200121030"></p>
+<p>​        配置虚拟路径：如图所示修改虚拟路径，则该项目“xxx”可不必放在webapps目录下。</p>
+<p><img src="/2020/01/23/%E5%85%B3%E4%BA%8Etomcat/image-20200126134220312.png" alt="image-20200126134220312"></p>
+<p>​        当webapps下无任何项目并如图配置，则指定D:/exam文件为根项目。</p>
+
+      </div>
+    </div>
+  </div>
+</div>
+<div class="lx-navigation">
+	<div class="lx-cover prev lx-cover-sm" style="background-image: url(/images/footer_1.jpg)">
+		<div class="overlay"></div>
+		<a class="copy" href="/2020/01/27/servlet-1/">
+			<div class="display-t">
+				<div class="display-tc">
+					<div>
+						<span>Next</span>
+						<h3>servlet (1)</h3>
+					</div>
+				</div>
+			</div>
+		</a>
+	</div>
+        <div class="lx-cover next lx-cover-sm" style="background-image: url(/images/footer_2.jpg)">
+		<div class="overlay"></div>
+		<a class="copy" href="#">
+			<div class="display-t">
+				<div class="display-tc">
+					<div>
+						<span>Prev</span>
+						<h3>没有更早的文章</h3>
+					</div>
+				</div>
+			</div>
+		</a>
+	</div>
+</div>
+</div>
+
+<footer>
+  <div>
+  Copyright &copy; 2019.<a href="/">Hexo</a><br>Powered by <a href="https://hexo.io" target="_blank">Hexo</a> | Theme <a href="https://lx.blleng.cn" target="_blank">Lx</a><br>
+  </div>
+</footer>
+</div>
+
+<button class="menu-trigger"></button>
+<div class="menu">
+  <div class="menu-head">
+    <span class="layer">
+      <div class="col">
+        <div class="row for-pic">
+          <div class="profile-pic">
+            <a href="/"><img src="/images/ava-1.png" alt="John Doe"/></a>
+          </div>
+        </div>
+        <div class="row for-name">
+          <p>John Doe</p>
+          <span class="tagline">不爱学习的小胖子</span>
+        </div>
+      </div>
+    </span>
+  </div>
+  <nav class="menu-container">
+  <ul class="menu-items">
+    <li><a href="/"><i class="fa fa-home fa-fw"></i>首页</a></li>
+    <li><a href="/archives/"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+    <li class="has-sub"><span class="dropdown-heading">
+      <i class="fa fa-bookmark fa-fw"></i>页面</span>
+        <ul>
+          <li><a href="/guestbook">留言</a></li>
+        <li><a href="/about">关于</a></li>
+        </ul>
+    </li>
+    <li class="has-sub"><span class="dropdown-heading">
+      <i class="fa fa-link fa-fw"></i>友链</span>
+        <ul>
+          <li> <a href="https://lx.blleng.cn" target="_blank">Theme-Lx</a></li>
+        </ul>
+    </li>
+  </ul>
+  </nav>
+</div>
+
+<div class="gototop js-top">
+  <a href="#" class="js-gotop"><i class="fa fa-arrow-up"></i></a>
+</div>
+<script src="/js/jquery.easing.min.js"></script>
+<script src="/js/jquery.waypoints.min.js"></script>
+<script src="/js/jquery.stellar.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+</body>
+</html>

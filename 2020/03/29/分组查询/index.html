@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>分组查询 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="author" content="John Doe">
+  <meta name="keywords" content="">
+  <meta name="description" content="">
+  <script id="hexo-configurations">
+  var CONFIG = {
+    root: '/',
+    theme: 'lx',
+    version: '1.4.5',
+    localsearch:{
+      "enable": false,
+      "trigger": "auto",
+      "top_n_per_article": 1,
+      "unescape": false,
+      "preload": false
+      },
+    path: '-'
+  };
+</script>
+
+  <link rel="shortcut icon" href="/images/fav-1.png">
+  <link rel="stylesheet" href="/css/main.css">
+  <script src="/js/jquery.min.js"></script>
+  <script src="/js/jquery.jside.menu.js"></script>
+	<script>
+	$(document).ready(function(){
+	$(".menu-container").jSideMenu({
+	    jSidePosition: "position-right",
+	    jSideSticky: true,
+	    jSideSkin: "endless-river",
+	     });
+	}); 
+	</script>
+  
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:300|Noto+Serif+SC&amp;display=swap">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/font-awesome@4/css/font-awesome.min.css">
+<meta name="generator" content="Hexo 5.4.0"></head>
+<body>
+<div class="single">
+<div id="page">
+<div id="lx-aside" style="background-image: url(/images/bg-2.png)" data-stellar-background-ratio="0.5">
+  <div class="overlay">
+  <div class="page-title">
+    <div class="avatar"><a href="/"><img src="/images/ava-1.png"></a></div>
+    <span>2020-03-29</span>
+    <h2>分组查询</h2>
+    
+    </div>
+</div>
+</div>
+<div id="lx-main-content">
+  <div class="lx-post">
+    <div class="lx-entry padding">
+      <div>
+        <p>​        <strong>分组查询</strong><span id="more"></span></p>
+<p>group by 和having</p>
+<p>group by ：按照某个字段或者某些字段进行分组。</p>
+<p>having ：having是对分组之后的数据进行再次过滤。</p>
+<p><strong>案例：找出每个工作岗位的最高薪资：</strong></p>
+<p><strong>select job,max(sal) from emp group by job;</strong></p>
+<p><img src="/2020/03/29/%E5%88%86%E7%BB%84%E6%9F%A5%E8%AF%A2/image-20200329231142766.png" alt="image-20200329231142766"></p>
+<p><strong>注意：分组函数一般都会和group by联合使用，这也是为什么它被称为分组函数。</strong></p>
+<p><strong>并且如何一个分组函数（count sum avg max min）都是在group by语句执行结束之后才会执行的。</strong></p>
+<p> <strong>当一条sql语句没有group by的话，整张表的数据会自成一组。</strong></p>
+<p><strong>select ename,job,max(sal) from emp group by job;</strong></p>
+<p>以上在mysql当中，查询结果是有的，但是结果没有意义，在oracle数据库当中会报错。语法错误。oracle的语法规则比sql语法规则严谨。</p>
+<p>记住一个规则：当一条语句中有group by的话，select后面只能跟分组函数和参与分组的字段也就是group by后面的字段。</p>
+<p>每个工作岗位的平均薪资？</p>
+<p><strong>select job,avg(sal) from emp group by job;</strong></p>
+<p><img src="/2020/03/29/%E5%88%86%E7%BB%84%E6%9F%A5%E8%AF%A2/image-20200330153412528.png" alt="image-20200330153412528"></p>
+<p>多个字段能不能联合起来一块分组？</p>
+<p>案例：找出每个部门不同工作岗位的最高薪资。</p>
+<p><strong>select job,max(sal),deptno from emp group by deptno,job;</strong></p>
+<p><img src="/2020/03/29/%E5%88%86%E7%BB%84%E6%9F%A5%E8%AF%A2/image-20200330154418795.png" alt="image-20200330154418795"></p>
+
+      </div>
+    </div>
+  </div>
+</div>
+<div class="lx-navigation">
+	<div class="lx-cover prev lx-cover-sm" style="background-image: url(/images/footer_1.jpg)">
+		<div class="overlay"></div>
+		<a class="copy" href="/2020/03/30/having%E5%92%8Cwhere%E7%9A%84%E9%80%89%E6%8B%A9/">
+			<div class="display-t">
+				<div class="display-tc">
+					<div>
+						<span>Next</span>
+						<h3>having和where的选择</h3>
+					</div>
+				</div>
+			</div>
+		</a>
+	</div>
+        <div class="lx-cover next lx-cover-sm" style="background-image: url(/images/footer_2.jpg)">
+		<div class="overlay"></div>
+		<a class="copy" href="/2020/03/29/count%E6%89%80%E6%9C%89%E5%92%8Ccount%E6%9F%90%E4%B8%AA%E5%AD%97%E6%AE%B5%E7%9A%84%E5%8C%BA%E5%88%AB/">
+			<div class="display-t">
+				<div class="display-tc">
+					<div>
+						<span>Prev</span>
+						<h3>count所有和count某个字段的区别</h3>
+					</div>
+				</div>
+			</div>
+		</a>
+	</div>
+</div>
+</div>
+
+<footer>
+  <div>
+  Copyright &copy; 2019.<a href="/">Hexo</a><br>Powered by <a href="https://hexo.io" target="_blank">Hexo</a> | Theme <a href="https://lx.blleng.cn" target="_blank">Lx</a><br>
+  </div>
+</footer>
+</div>
+
+<button class="menu-trigger"></button>
+<div class="menu">
+  <div class="menu-head">
+    <span class="layer">
+      <div class="col">
+        <div class="row for-pic">
+          <div class="profile-pic">
+            <a href="/"><img src="/images/ava-1.png" alt="John Doe"/></a>
+          </div>
+        </div>
+        <div class="row for-name">
+          <p>John Doe</p>
+          <span class="tagline">不爱学习的小胖子</span>
+        </div>
+      </div>
+    </span>
+  </div>
+  <nav class="menu-container">
+  <ul class="menu-items">
+    <li><a href="/"><i class="fa fa-home fa-fw"></i>首页</a></li>
+    <li><a href="/archives/"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+    <li class="has-sub"><span class="dropdown-heading">
+      <i class="fa fa-bookmark fa-fw"></i>页面</span>
+        <ul>
+          <li><a href="/guestbook">留言</a></li>
+        <li><a href="/about">关于</a></li>
+        </ul>
+    </li>
+    <li class="has-sub"><span class="dropdown-heading">
+      <i class="fa fa-link fa-fw"></i>友链</span>
+        <ul>
+          <li> <a href="https://lx.blleng.cn" target="_blank">Theme-Lx</a></li>
+        </ul>
+    </li>
+  </ul>
+  </nav>
+</div>
+
+<div class="gototop js-top">
+  <a href="#" class="js-gotop"><i class="fa fa-arrow-up"></i></a>
+</div>
+<script src="/js/jquery.easing.min.js"></script>
+<script src="/js/jquery.waypoints.min.js"></script>
+<script src="/js/jquery.stellar.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+</body>
+</html>
