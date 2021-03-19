@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="theme-color" content=#58b77a>
+  <title>java基础 | 不知名码子的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="author" content="不知名码子">
+  <meta name="keywords" content="">
+  <meta name="description" content="">
+  <script id="hexo-configurations">
+  var CONFIG = {
+    root: '/',
+    theme: 'll',
+    version: '0.3.9',
+    localsearch:{
+      "enable": false,
+      "trigger": "auto",
+      "top_n_per_article": 1,
+      "unescape": false,
+      "preload": false
+      },
+    path: 'null'
+  };
+</script>
+
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/theme-lx@0.3.9/source/css/main.min.css">
+  <style type="text/css">
+    pre,
+    code {
+      font-family: 'Fira Code', monospace;
+    }
+    html {
+      font-family: sans-serif;
+    }
+    body {
+      font-family: sans-serif;
+    }
+    h1, h2, h3, h4, h5, figure {
+      font-family: sans-serif;
+    }
+    .menu-container{
+      font-family: sans-serif;
+    }
+  </style>
+
+  <script src="//cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/theme-lx@0.3.9/source/js/jquery.jside.menu.js"></script>
+	<script>
+	$(document).ready(function(){
+	$(".menu-container").jSideMenu({
+	    jSidePosition: "position-right",
+	    jSideSticky: true,
+	    jSideSkin: "greenish",
+	     });
+	}); 
+	</script>
+  
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Fira Code:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/font-awesome@4/css/font-awesome.min.css">
+<meta name="generator" content="Hexo 5.4.0"></head>
+<body>
+<div class="single">
+
+<div id="page">
+<div id="lx-aside" style="background-image: url(//cdn.jsdelivr.net/npm/theme-lx@0.3.9/source/images/post_cover.jpeg)" data-stellar-background-ratio="0.5">
+  <div class="overlay">
+  <div class="page-title">
+    <div class="avatar"><a href="/"><img src="/images/2233.jpg"></a></div>
+    <span>2020-01-28</span>
+    <h2>java基础</h2>
+    
+    </div>
+</div>
+</div>
+
+<div id="lx-main-content">
+  <div class="lx-post">
+    <div class="lx-entry padding">
+      <div>
+        <p>​        第一章</p>
+<p>标识符：<span id="more"></span></p>
+<p>——在java源程序中只要是程序员有权利自己命名的单词都是标识符。</p>
+<p>——在标识符可以标识什么什么元素</p>
+<p>​       类名，方法名，变量名，接口名，常量名。</p>
+<p>——标识符的命名规则</p>
+<p>​        一个合法的标识符只能由数字，字母，下划线，美元符号组成，不能有其他符号。</p>
+<p>​        不能以数字开头。</p>
+<p>​        严格区分大小写。</p>
+<p>​        关键字不能做标识符。关键字即java定义过的如public，class。</p>
+<p>​        理论上无长度限制。</p>
+<p>——标识符的命名规范</p>
+<p>​        只是一种规范不属于语法，不遵守规范不会报错，但是程序写完别人看不懂。</p>
+<p>​        最好见名知意，如：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">UserService</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">login</span><span class="params">(String username,String password)</span></span>&#123;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>​        遵守驼峰命名方式：</p>
+<p>​        SystemService， UserService,CunstomerService等等</p>
+<p>​        类名，接口名：首字母大写，后面每个单词首字母大写。</p>
+<p>​        变量名，方法名：首字母小写，后面每个单词首字母大写。</p>
+<p>​        常量名：全部大写。 </p>
+<p>​        第二章</p>
+<p>——数据在现实生活中是分门别类的，所以数据在计算机编程语言中也是有类型的称之为【数据类型】。</p>
+<p>​        10，100                 属于整数型字面值</p>
+<p>​        3.14                        属于浮点型字面值</p>
+<p>​        true，false            属于布尔型字面值</p>
+<p>​        “abd“，”中国人“    属于字符串型字面值</p>
+<p>​        “A”，“人”                 属于字符型字面值</p>
+<p>——注意：java语言中所有字符串型字面值必须使用双引号括起来，半角双引号</p>
+<p>​                   java语言中所有字符型字面值必须用单引号括起来，半角单引号</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"> <span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HelloWorld</span></span>&#123;</span><br><span class="line">     <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span> <span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">    	 System.out.println(<span class="string">&quot;xixi&quot;</span>);</span><br><span class="line">    	 System.out.println(<span class="string">&quot;最近过得怎么样&quot;</span>);</span><br><span class="line">    	 System.out.println(<span class="number">10</span>);</span><br><span class="line">    	 System.out.println(<span class="number">100</span>);</span><br><span class="line">    	 System.out.println(<span class="keyword">false</span>);</span><br><span class="line">    	 System.out.println(<span class="keyword">true</span>);</span><br><span class="line">    	 System.out.println(<span class="string">&#x27;A&#x27;</span>);</span><br><span class="line">    	 System.out.println(<span class="number">3.14</span>);</span><br><span class="line">     &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>​        </p>
+<p>​        第三章</p>
+<p>——变量：变量本质上来说是内存中的一块空间，这块空间有“数据类型”，”名字“，”字面值“。</p>
+<p>​        变量包含三部分：数据类型，名称，字面值【数据】。</p>
+<p>​        变量是内存中存储数据的最基本单元。</p>
+<p>——数据类型的作用：</p>
+<p>​        不同的数据有不同的类型，不同的数据类型底层会分配不同大小的空间。</p>
+<p>​        数据类型是指导程序在运行阶段该分配多大的内存空间。</p>
+<p>——声明/定义变量的语法格式：</p>
+<p>​        数据类型 变量名；；</p>
+<p>​        数据类型： 如 int 整数型 double float等。</p>
+<p>​        变量名：只要是合法的标识符就行，规范中要求：首字母小写，后面每个单词首字母大写。</p>
+<p>​        例如：int i；</p>
+<pre><code>                int age；
+</code></pre>
+<p>​                    int length；</p>
+<p>​                    int size；</p>
+<p>​                    int num；</p>
+<p>​        其中int是数据类型，i，age，length，size，num是变量名。</p>
+<p>——变量声明之后如何赋值</p>
+<p>​        语法格式：变量名=字面值</p>
+<p>​        要求：字面值的数据类型必须和变量的数据类型一直。</p>
+<p>​        =等号是一个运算符，叫做赋值运算符，赋值运算符先运算等号右边的表达式，表达式执行之后的结果赋值给左边的变量。</p>
+<p>——声明和赋值可以放到一起完成</p>
+<p>​        int i=10</p>
+<p>——赋值后可以重新赋值，变量的值可以变化；</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">j</span> </span>&#123; </span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span> <span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">		<span class="keyword">int</span> i = <span class="number">10</span>;</span><br><span class="line">		System.out.println(i);</span><br><span class="line">		i = <span class="number">20</span>;</span><br><span class="line">		System.out.println(i);</span><br><span class="line">		i = <span class="number">30</span>;</span><br><span class="line">		System.out.println(i);</span><br><span class="line">		i = <span class="number">40</span>;</span><br><span class="line">		System.out.println(i);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>——通常访问变量的两种形式</p>
+<p>​        第一种：读取变量中保存的具体数据 get/获取</p>
+<p>​        第二种：修改变量中保存的具体数据 set/设置  </p>
+<p>——  i = 20 ；//set</p>
+<p>​          System.out.println(i) ; // get</p>
+<p>——变量在一行上可以声明多个</p>
+<p>​        int a，b，c；</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">j</span> </span>&#123; </span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span> <span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">		<span class="keyword">int</span> a,b,c; </span><br><span class="line">		c =<span class="number">300</span>; </span><br><span class="line">		a = <span class="number">1</span> ; </span><br><span class="line">		b = <span class="number">2</span>; </span><br><span class="line">        System.out.println(a);</span><br><span class="line">		System.out.println(b);</span><br><span class="line">	    System.out.println(c);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>——在java方法体当中的代码，是遵守自上而下的顺序逐行执行。</p>
+<p>​        特点：前一行的代码必须完整结束之后下一行才能执行。</p>
+<p>——在同一个“作用域”当中，变量名不能重复。</p>
+<p>——什么是作用域：变量的作用域，其实描述的就是变量的有效范围。在什么范围内是可以被访问的，只要出了这个范围该变量就无法访问。</p>
+<p>——变量的作用域只要记住一句话：出了大括号就不认识了</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>&#123;</span><br><span class="line">	    <span class="keyword">static</span> <span class="keyword">int</span> k = <span class="number">100</span>;</span><br><span class="line">		<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">			<span class="keyword">int</span> i = <span class="number">10</span>;</span><br><span class="line">			System.out.println(i);</span><br><span class="line">			System.out.println(k);</span><br><span class="line">			<span class="keyword">for</span>(<span class="keyword">int</span> a=<span class="number">0</span>;a&lt;<span class="number">10</span>;a++) &#123;</span><br><span class="line">		   </span><br><span class="line">			&#125;</span><br><span class="line">			 System.out.println(a);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">doSome</span><span class="params">()</span> </span>&#123;</span><br><span class="line">			System.out.println(k);</span><br><span class="line">		&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>此时会报错，因为a在for循环之后无法访问作用域仅在循环当中。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>&#123;</span><br><span class="line">	    <span class="keyword">static</span> <span class="keyword">int</span> k = <span class="number">100</span>;</span><br><span class="line">		<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">			<span class="keyword">int</span> i = <span class="number">10</span>;</span><br><span class="line">			System.out.println(i);</span><br><span class="line">			System.out.println(k);</span><br><span class="line">			<span class="keyword">int</span> a;</span><br><span class="line">			<span class="keyword">for</span>(a=<span class="number">0</span>;a&lt;<span class="number">10</span>;a++) &#123;</span><br><span class="line">		    </span><br><span class="line">			&#125;</span><br><span class="line">			System.out.println(a);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">doSome</span><span class="params">()</span> </span>&#123;</span><br><span class="line">			System.out.println(k);</span><br><span class="line">		&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>此时不会报错且输出为10,100,10。此时访问的是main方法中的变量i。</p>
+<p>——关于变量的分类：</p>
+<p>​        根据变量声明的位置来分类：</p>
+<p>​        局部变量—在方法体重声明的变量叫局部变量。</p>
+<p>​        成员变量—在方法体外【类体之内】声明的变量叫做成员变量。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>&#123;</span><br><span class="line">            <span class="keyword">int</span> j = <span class="number">200</span>;<span class="comment">//成员变量。</span></span><br><span class="line">            <span class="comment">//主方法，程序入口。</span></span><br><span class="line">		<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">			<span class="keyword">int</span> i = <span class="number">10</span>;<span class="comment">//局部变量。</span></span><br><span class="line">			System.out.println(i);</span><br><span class="line">			&#125;</span><br><span class="line">		<span class="keyword">static</span> <span class="keyword">int</span> i = <span class="number">100</span>;<span class="comment">//成员变量。</span></span><br><span class="line">		    <span class="comment">//dosome方法。</span></span><br><span class="line">		<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">doSome</span><span class="params">()</span> </span>&#123;</span><br><span class="line">			<span class="keyword">int</span> i = <span class="number">90</span>;<span class="comment">//局部变量</span></span><br><span class="line">		&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>此时输出为10。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>&#123;</span><br><span class="line">            <span class="keyword">int</span> j = <span class="number">200</span>;<span class="comment">//成员变量。</span></span><br><span class="line">            <span class="comment">//主方法，程序入口。</span></span><br><span class="line">		<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">			System.out.println(i);</span><br><span class="line">			&#125;</span><br><span class="line">		<span class="keyword">static</span> <span class="keyword">int</span> i = <span class="number">100</span>;<span class="comment">//成员变量。</span></span><br><span class="line">		    <span class="comment">//dosome方法。</span></span><br><span class="line">		<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">doSome</span><span class="params">()</span> </span>&#123;</span><br><span class="line">			<span class="keyword">int</span> i = <span class="number">90</span>;<span class="comment">//局部变量</span></span><br><span class="line">		&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>此时输出为100.        以上称为<strong>就近原则</strong>，因为java在方法体中是自上而下读取并执行，然而    static int i；    这一句属于类体中，所以先读取类体中的代码再执行方法体中的代码。</p>
+
+      </div>
+    </div>
+  </div>
+</div>
+<div class="lx-navigation">
+	<div class="lx-cover prev lx-cover-sm" style="background-image: url(//cdn.jsdelivr.net/npm/theme-lx@0.3.9/source/images/footer-l.jpeg)">
+		<div class="overlay"></div>
+		<a class="copy" href="/2020/01/30/java%E5%9F%BA%E7%A1%80-2/">
+			<div class="display-t">
+				<div class="display-tc">
+					<div>
+						<span>Next</span>
+						<h3>java基础-2</h3>
+					</div>
+				</div>
+			</div>
+		</a>
+	</div>
+        <div class="lx-cover next lx-cover-sm" style="background-image: url(//cdn.jsdelivr.net/npm/theme-lx@0.3.9/source/images/footer-r.jpeg)">
+		<div class="overlay"></div>
+		<a class="copy" href="/2020/01/27/servlet-1/">
+			<div class="display-t">
+				<div class="display-tc">
+					<div>
+						<span>Prev</span>
+						<h3>servlet...</h3>
+					</div>
+				</div>
+			</div>
+		</a>
+	</div>
+</div>
+
+</div>
+
+<footer>
+  <div>
+  Copyright &copy; 2021.<a href="/">不知名码子的博客</a><br>Powered by <a href="https://hexo.io" target="_blank">Hexo</a> | Theme <a href="https://lx.js.org" target="_blank">Lx</a><br>
+  </div>
+</footer>
+
+</div>
+
+<button class="hamburger hamburger--arrow-r" type="button">
+    <div class="hamburger-box">
+      <div class="hamburger-inner"></div>
+    </div>
+</button> 
+<div class="menu visibility">
+  <div class="menu-head">
+    <span class="layer">
+      <div class="col">
+        <div class="row for-pic">
+          <div class="profile-pic">
+            <a href="/"><img src="/images/2233.jpg" alt="不知名码子"/></a>
+          </div>
+        </div>
+        <div class="row for-name">
+          <p>不知名码子</p>
+          <span class="tagline">Hello, World!</span>
+        </div>
+      </div>
+    </span>
+  </div>
+  <nav class="menu-container">
+  <ul class="menu-items">
+    <li><a href="/"><i class="fa fa-home fa-fw"></i>首页</a></li>
+    <li><a href="/archives/"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+    <li class="has-sub"><span class="dropdown-heading">
+      <i class="fa fa-th-list fa-fw"></i>分类</span>
+        <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/JDBC/">JDBC</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/JavaWeb/">JavaWeb</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/MySQL/">MySQL</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Mybatis/">Mybatis</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Mysql/">Mysql</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Servlet/">Servlet</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Spring/">Spring</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/io%E6%B5%81/">io流</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/java%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80/">java语言基础</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/maven/">maven</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/servlet/">servlet</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%88%86%E7%BB%84%E5%87%BD%E6%95%B0/">分组函数</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%8F%8D%E5%B0%84%E6%9C%BA%E5%88%B6/">反射机制</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%A4%9A%E7%BA%BF%E7%A8%8B/">多线程</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%BC%82%E5%B8%B8%E6%9C%BA%E5%88%B6/">异常机制</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%95%B0%E7%BB%84/">数组</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/">面向对象</a></li></ul>
+    </li>
+    <li class="has-sub"><span class="dropdown-heading">
+      <i class="fa fa-bookmark fa-fw"></i>页面</span>
+        <ul>
+          <li><a href="/guestbook/">Guestbook</a></li>
+        <li><a href="/about/">About</a></li>
+        </ul>
+    </li>
+    <li class="has-sub"><span class="dropdown-heading">
+      <i class="fa fa-link fa-fw"></i>友链</span>
+        <ul>
+          <li> <a href="https://lx.js.org" target="_blank">Theme-Lx</a></li>
+        </ul>
+    </li>
+  </ul>
+  </nav>
+</div>
+
+<div class="gototop js-top">
+  <a href="#" class="js-gotop"><i class="fa fa-arrow-up"></i></a>
+</div>
+<script src="//cdn.jsdelivr.net/npm/theme-lx@0.3.9/source/js/jquery.easing.min.js"></script>
+<script>
+(function () {
+	"use strict";
+	var goToTop = function() {
+		$(".js-gotop").on("click", function(event){
+			event.preventDefault();
+			$("html, body").animate({
+				scrollTop: $("html").offset().top
+			}, 500, "easeInOutExpo");
+			return false;
+		});
+		$(window).scroll(function(){
+			var $win = $(window);
+			if ($win.scrollTop() > 200) {
+				$(".js-top").addClass("active");
+			} else {
+				$(".js-top").removeClass("active");
+			}
+		});
+	};
+	$(function(){
+		goToTop();
+	});
+}());
+</script>
+
+
+</body>
+</html>
